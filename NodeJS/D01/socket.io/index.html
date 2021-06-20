@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>socket.io</title>
+  <script src="socket.io.js" charset="utf-8"></script>
+</head>
+<body>
+
+  <script>
+    var socket = io.connect('http://10.9.68.149:8081');
+    //连接服务器
+
+      socket.on('hehe', function(msg){
+        console.log('hehe'+msg)
+      })
+      socket.emit('haha','我来了')
+  </script>
+</body>
+</html>
+

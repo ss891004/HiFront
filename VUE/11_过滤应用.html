@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+
+        <input type="text" v-model="mytext" @input="handleInput()" />
+
+        <!--         <ul>
+            <li v-for="data in datalist" :key="data">
+                {{data}}
+            </li>
+        </ul> -->
+
+
+        <ul>
+            <li v-for="data in computedDatalist" :key="data">
+                {{data}}
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+
+        var vm = new Vue({
+            el: "#box",
+            data: {
+                datalist: ["aaa", "bbb", "ccc", "ddd", "add", "cee", "eee"],
+                // list:["aaa","bbb","ccc","ddd","add","cee","eee"],
+                mytext: ""
+            },
+
+            methods: {
+                // handleInput(){
+                //     console.log(this.mytext);
+                //     this.datalist = this.list.filter((item)=>item.indexOf(this.mytext)>-1);
+                // }
+            },
+
+            computed: {
+                computedDatalist() {
+                    return this.datalist.filter((item) => item.indexOf(this.mytext) > -1);
+                }
+            }
+
+        })
+
+
+        //计算属性 基于依赖重新计算，用在v-for
+        //filter 不影响原数组
+
+        var arr = ["aaa", "bab", "ccc"]
+
+        var newarr = arr.filter((item) => item.indexOf("a") > -1);
+
+        console.log(newarr, arr);
+    </script>
+</body>
+
+</html>
