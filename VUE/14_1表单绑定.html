@@ -15,6 +15,7 @@
         <!-- 因为数据是双向绑定的,无需使用dom的方式,获取单选是否被选择 -->
         <input type="checkbox" v-model="mychk"><label>记住用户名</label>
 
+        <!-- 多选框  数据双向绑定的是一个数组，而且，每一项都要设置value -->
         <p>你喜欢的运动
             <input type="checkbox" v-model="chkgrp" value='h1'>游泳
             <input type="checkbox" v-model="chkgrp" value='h2'>画画
@@ -22,6 +23,7 @@
         </p>
         {{chkgrp}}
 
+        <!-- 单选框，数据绑定的可以是一个数组 -->
         <p>你最喜欢的语言
             <input type="radio" v-model="rdogrp" value='python'>python
             <input type="radio" v-model="rdogrp" value='vue'>vue

@@ -24,6 +24,8 @@
 <body>
     <div id="box">
 
+        <div :class="isActive?'red':'yellow' ">三目运算</div>
+
         <div :class="classobj">
             我是动态切换class- 对象写法
         </div>
@@ -44,7 +46,7 @@
         var vm = new Vue({
             el: "#box",
             data: {
-
+                isActive:true,
                 classobj: {
                     "a": true,
                     "b": true,

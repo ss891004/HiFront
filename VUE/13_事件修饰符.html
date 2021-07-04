@@ -12,18 +12,7 @@
 
     <div id="box">
 
-        <ul @click.self="handleui">
-            <li @click="handleli">1111</li>
-            <li @click.stop="handleli">2222</li>
-            <li @click.once="handleli"> 2222</li>
-            <li>2222</li>
-        </ul>
-
-        <!-- 按键修饰符, 只有当按回车,才触发事件 -->
-        <input type="text" @keyup.enter="handleenter($event)">
-
-        <input type="text" @input="handleInput($event)" @keyup.65="handleKeyUp"/>
-
+        <!-- 事件冒泡现象 -->
         <ul @click.self="handleUlClick()">
             <!-- .self是事件源 是自己会触发 -->
             <li @click.stop="handleLiClick1()">事件冒泡-11</li>
@@ -33,7 +22,12 @@
             <!-- <li @click="isFirst && handleLiClick1()">333</li> -->
             <li @click.once="handleLiClick1()">333</li>
             <!-- .once 只会触发一次 -->
-        </ul>
+        </ul> 
+
+        <!-- 按键修饰符, 只有当按回车,才触发事件 -->
+        <input type="text" @keyup.enter="handleenter($event)">
+
+        <input type="text" @input="handleInput($event)" @keyup.65="handleKeyUp"/>
 
     </div>
 
@@ -82,6 +76,7 @@
                         this.mytext = ev.target.value;
                     }
                 }
+            }
         )
     </script>
 
