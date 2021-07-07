@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  
+    <div id="box">
+        <!--  1. 点击send ，触发handleClick
+         2. 触发myevent的，  handleMyEvent，并传入参数 -->
+         <!-- 子传父 ，通过事件，向上传递 -->
+        <child @myevent="handleMyEvent($event)"></child>
+      </div>
+  
+      <script type="text/javascript">
+          //子组件
+          Vue.component("child",{
+            template:`<div>
+              child-<button @click="handleClick">send</button>
+            </div>`,
+            data(){
+              return {
+                money:1000000
+              }
+            },
+            methods:{
+              handleClick(){
+                console.log("把消息传给父组件")
+                this.$emit("myevent",this.money);// emit 分发
+              }
+            }
+          })
+         
+          var vm = new Vue({
+            el:"#box",
+            data:{
+            },
+  
+            methods:{
+              handleMyEvent(data){
+                console.log("我收到了钱",data)
+              }
+            }
+          })
+        
+  
+      </script>
+
+</body>
+</html>

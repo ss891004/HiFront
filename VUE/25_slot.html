@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+
+<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="box">
+      <hello>
+        <ul slot="a">
+          <li>111</li>
+          <li>111</li>
+          <li>111</li>
+          <li>111</li>
+        </ul>
+        <ul slot="b">
+          <li>222</li>
+          <li>222</li>
+          <li>222</li>
+          <li>222</li>
+        </ul>
+
+        <ul >
+          <li>333</li>
+          <li>333</li>
+          <li>333</li>
+          <li>333</li>
+        </ul>
+      </hello>
+    </div>
+   
+
+    <script type="text/javascript">
+    
+      var hello = {
+            template:`<div>
+                <slot name="b"></slot>
+                hello
+                <slot name="a"></slot>
+                <slot></slot>
+            </div>`
+      }
+
+
+       new Vue({
+        el:"#box",
+        data:{
+        },
+        components:{
+          hello
+        }
+       })
+    </script>
+</body>
+</html>

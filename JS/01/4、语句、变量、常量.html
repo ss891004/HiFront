@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        document.write("aaa");
+        document.write("cde");
+
+
+        /*
+        *  语句块
+        *
+        * */
+        {
+            document.write("aaa");
+            document.write("cde");
+        }
+
+
+        var a=3; //ES5变量定义
+//        let b=4;//ES6 的变量定义
+
+        var x=20;
+        var y=20;
+        var s=x+y;
+        console.log(s);
+
+
+        var a1;//仅定义变量不赋值
+        a1=20;//用的时候在赋值
+
+        var b1,b2,b3;//用，隔开，定义多个不赋值的变量
+
+        var a2=3,
+            a3=4,
+            a4=5;//可以使用逗号分隔
+
+//        如果多个变量的值相同可以使用连续赋值的方法
+        var b4=b5=10;
+        b5=20;
+        console.log(b4,b5);
+//javascript是解释性语言
+       /* var 姓名="谢天";
+        console.log(姓名); 必须杜绝*/
+        /*
+        * 变量名规则
+        * 变量名必须要有含义，除非在使用循环等内容需要用到无意义的递进变量时，其他时候变量必须有意义
+        * 变量不能使用中文定义，变量名使用驼峰式命名方法,不能使用关键词和保留字
+        * 临时变量或者参数定义时尽量以下划线开头 ，_width,_height
+        *
+        *驼峰式命名：
+        *    首字母小写，每个单词大写   goodsNewPrice
+        *
+        * */
+
+       /* var public=10;
+        var protected=20;
+        var private=30;*/
+
+
+
+//       const 常量 ES6
+
+        const ab=10;
+//        ab=20;//常量一旦定义不能再修改他的值
+        /*
+        *
+        * 常量名规定
+        * 必须使用全大写，单词中间使用下划线连接,BUTTON_CLICK_VALUE
+        *
+        * */
+
+        const BUTTON_CLICK_VALUE=10;
+        console.log(BUTTON_CLICK_VALUE);
+    </script>
+</body>
+</html>

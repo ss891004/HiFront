@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*String  字符类型
+        Number  数值类型
+        Boolean  布尔类型
+        undefined  未定义
+        null 空值
+
+        Object 对象类型
+
+        ES6
+        Symbol//独一无二的类型*/
+
+        var a1="a",
+            a2='b',
+            a3="4",
+            a4="true";//只要值是绿色都是字符类型，使用单引号或者双引号引起来的都是字符类型
+
+
+        //8进制 067，16进制 0xFF, 1.2e+5 1.2*10的5次幂,
+        var b1=1,
+            b2=0.5,
+            b3=-2,
+            b4=0xFF,
+            b5=067,
+            b6=1.2e+5,
+            b7=1.2e-5;
+
+        var c1=true,
+            c2=false;
+
+        var d1;//定义变量未赋值就是未定义
+        console.log(d1);
+
+//        console.log(d2);//连变量都没定义的会报错
+//        对象的属性a和b
+        var obj={
+            a:1,
+            b:2
+        };
+        console.log(obj);
+        console.log(obj.a);
+        console.log(obj.b);
+        obj.a=20;
+
+
+        var goods={
+            name:"超强笔记本",
+            system:"window 10",
+            price:6000
+        };
+        console.log(goods.price);
+
+
+//        goods.price=8000;
+        goods["price"]=8000;
+
+        var s="name";
+        console.log(goods[s]);
+//        使用.写法必须属性固定，使用[]写法属性可以是变量
+
+
+        console.log(typeof(a1));
+        console.log(typeof(b1));
+        console.log(typeof(c1));
+        console.log(typeof(d1));//d1的值是undefined,类型也是undefined
+        console.log(typeof(obj));
+        console.log(typeof(null));//null的类型是对象类型
+
+
+//        三个强制转换
+//        Number();
+//        String();
+//        Boolean();
+
+
+        console.log(Number("a"));//NaN 非数值，数值类型
+        console.log(Number(""));//""强转后变为0
+        console.log(Number("5"));//5
+        console.log(Number("5a"));//NaN,只要有字符，在转换数值时一定就会变成NaN，不管第一个是数值还是字符
+        console.log(Number(true));//true->1,false->0
+        console.log(Number(null));//强转null变为0
+
+
+
+        console.log(String(0xFF));//所有数值都会先运算变为正式数值在强转
+
+
+        console.log(Boolean(""));//false
+        console.log(Boolean(0));//false
+        console.log(Boolean(undefined));//false
+        console.log(Boolean(null));//false
+        console.log(Boolean(NaN));//false
+        console.log(Boolean(false));//false
+
+//        强转布尔值时，如果值是""，0，undefined，null,NaN,false这些值时，就会变为false，除此之外强转都是true
+
+
+
+
+    </script>
+</body>
+</html>

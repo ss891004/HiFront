@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+
+<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="box">
+      <button @click="handleClick()">get</button>
+      <child ref="mychild"></child>
+
+      <input type="text" ref="mytext"/>
+      <button @click="handleAdd">add</button>
+
+    </div>
+   
+    <script type="text/javascript">
+        //子组件
+        Vue.component("child",{
+          template:`<div>  child 子组件 </div>`,
+
+          data(){
+            return {
+              childname:"11111111111111111111"
+            }
+          },
+
+          methods:{
+            handleClick(data){
+              console.log("child-11111",data)
+            }
+          }
+        })
+
+        var vm = new Vue({
+          el:"#box",
+          methods:{
+            handleClick(){
+              console.log(this.$refs.mychild.childname); //获取引用
+              // 获取整vue对象
+              this.$refs.mychild.handleClick("给你5管麻药");//调用的子组件的方法
+            },
+
+            handleAdd(){
+              console.log("handleAdd",this.$refs.mytext.value)
+            }
+          }
+        })
+
+    </script>
+</body>
+</html>

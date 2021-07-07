@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+  
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="lib/vue.js"></script>
+</head>
+<body>
+
+
+    <!-- <div class="animated  hinge infinite">1111111111111</div> -->
+    <div id="box">
+        <button @click="isShow= !isShow">click</button>
+
+        <transition name="bounce" mode="out-in">
+          <div v-if="isShow" key="1">111111</div>
+          <div v-else key="2">222222</div>
+        </transition>
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el:"#box",
+        data:{
+          isShow:true
+        }
+      })
+
+
+
+      // {
+      //   tag:"div",
+      //   text:"111111"
+      // }
+
+
+      // {
+      //   tag:"p",
+      //   text:"222222"
+      // }
+
+
+      /* Vue 为了减少对于dom 的操作
+
+        (1)  key 目的：为了重用
+
+            key值相同， 就重用
+            key值不同，就不重用
+
+        (2)  v-if v-else 如果标签相同，就重用,如果标签不同， 就不重用
+       */
+
+    </script>
+</body>
+</html>

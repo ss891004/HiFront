@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div0"></div>
+    <script>
+//       msg=confirm("是否学过H5？");//同步等待，1,确定取消框
+//       console.log(msg);//3
+//       name=prompt("请输入你的姓名：");//弹出框执行的优先级别较高，2，输入确定框
+//       console.log(name);//4
+
+
+
+//        document.write("写入内容");//他会打开现有html中body部分，重新加入内容，
+        // 如果是交互操作时，原来有内容，会删除原来的内容
+//        document.write("<button>按钮</button>");//可以插入html标签
+
+//        document.body.innerHTML=document.body.innerHTML+"<ul><li>1</li><li>1</li></ul>";//设置body标签中的所有html内容
+
+        div=document.getElementById("div0");//根据id获取当前页面中标签DOM
+        div.innerHTML="内容";
+        document.write("写入")
+       /* div.onclick=function () {
+            document.write("写入")
+        }*/
+
+    </script>
+</body>
+</html>
