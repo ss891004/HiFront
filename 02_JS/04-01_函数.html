@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义函数
+			/*
+			function 函数名(){  函数体 }
+			*/
+			function fuc(){
+				document.write("hello");
+				document.write("<br>");
+				document.write("world");
+			}
+
+			//调用函数
+			//直接调用
+			fuc();
+
+			//定义有参数，有返回值
+			function fuc2(num1,num2){
+				return num1-num2;
+			}
+			
+			var res=fuc2(10,2);
+			console.log(res);
+
+
+			// arguments
+			// 每一个函数都内置一个argumnets， 用来存储实际传入的参数，其本质是一个数组，下标从0开始。
+			function fuc3(num1, num2,num3){
+				console.log(arguments.length);
+				console.log(arguments[0]);
+				console.log(arguments[1]);
+			}
+
+			fuc3(1,2,3);
+
+
+			// 函数作用域
+			console.log("@@@@@@@ 全局变量");
+			var a=10;  // a 为全局变量
+
+			// 定义函数时，不分配内存空间，只会在调用时，分配
+			function a1(){
+				nn=0;
+				a+=20;
+				return a;
+			}
+
+			// 调用a1函数， 变量a 既不是参数，也没在函数体声明，那么系统会去上一层寻找变量。所以，在函数体中改变了a的值。
+			console.log(a1());
+			console.log(a1());
+			console.log(a);
+
+
+			console.log("nn" +nn); // 省略var声明变量，变量会被自动提升为全局变量，所以，声明变量一定要加var； 
+
+			console.log("@@@@@@@ 局部变量");
+			var b=10;
+			function b1(){
+				var b=20;
+				b+=20;
+				return b;
+			}
+
+			// 局部变量和全局变量 重名时，局部变量优先级高
+			console.log(b1());
+			console.log(b1());
+			console.log(b);
+						
+			//*******************
+			//预编译
+			//*******************
+			console.log(c); // undefied  
+			//注：程序在执行时，需要分配内存空间，会从头到尾，检查下，然后分配空间，所以，虽然c的定义调用之后，系统不会报 c is not defined，而是 undefined.
+
+			console.log("@@@@@@@  形参");
+
+			var c=20,d=30;
+			function cd(c, d){
+				var e=0;
+				// 函数体内定义的形参，变量，作用域只在函数体中
+				return c+d;
+			}
+
+			console.log(cd(11,22));
+			console.log(c+', '+ d);
+			console.log(e);  // e is not defined
+			// 注： e 是函数cd 的局部变量， 作用域在函数体内，所以，在函数外面，没有此变量。
+
+
+		</script>
+	</body>
+</html>

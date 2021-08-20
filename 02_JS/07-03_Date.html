@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 无参数传入
+		var d = new Date();
+		console.log(d);
+
+
+		// 有参数传入
+		var d1 = new Date("2020-12-12");
+		var d2= new Date("2020/12/14");
+		var d3 = new Date(2000,10,10,10,10,10,10);
+		console.log(d1);
+		console.log(d2);
+		console.log(d3);
+
+		console.log(d.toDateString());
+		console.log(d.toTimeString());
+		console.log(d.toLocaleDateString());
+		console.log(d.toLocaleTimeString());
+		console.log(d.toLocaleString());
+		console.log(d.toUTCString());
+
+
+		// Date对象的方法 
+
+		//Data的出生值时1970年1月1日。
+		console.log(Date.parse(d));
+
+		console.log(d.getTime());
+
+
+		
+		function countOfDate(d1,d2){
+			//计算2个日前之间的天数
+			var dt1 = new Date(d1);
+			var dt2 = new  Date(d2);
+			//根据时间戳，获得差值
+			var day = Math.abs(dt1.getTime()-dt2.getTime());
+
+		 return (	day/1000/60/60/24);
+		}
+
+		// 转化成天数
+		console.log(countOfDate("2021-07-01","2021-08-01"));
+
+
+		
+		</script>
+	</body>
+</html>

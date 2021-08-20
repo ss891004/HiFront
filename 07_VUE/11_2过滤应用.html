@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+
+<body>
+    <div id="box1">
+        <input type="text" v-model="mytext" @input="handleInput()" />
+        <ul>
+            <li v-for="data in datalist" :key="data">
+                {{data}}
+            </li>
+        </ul>  
+
+    </div>
+
+    <div id="box2">
+        <input type="text" v-model="mytext" />
+        <ul>
+            <li v-for="data in computedDatalist" :key="data">
+                {{data}}
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- 通过在文本框中输入，模糊查询 -->
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#box1",
+            data: {
+                datalist: ["aaa", "bbb", "ccc", "ddd", "add", "cee", "eee"],
+                list:["aaa","bbb","ccc","ddd","add","cee","eee"],
+                mytext: ""
+            },
+
+            methods: {
+                handleInput(){
+                    console.log(this.mytext);
+                    //原先的list 内容不能变，只能复制给另一list，并在页面显示
+                    //filter 不影响原数组
+                    this.datalist = this.list.filter((item)=>item.indexOf(this.mytext)>-1);
+                }
+            },
+        });
+
+        
+        var vm = new Vue({
+            el: "#box2",
+            data: {
+                datalist: ["aaa", "bbb", "ccc", "ddd", "add", "cee", "eee"],
+                mytext: ""
+            },
+
+            methods: {
+            },
+
+            computed: {
+                //计算属性
+                computedDatalist() {
+                    return this.datalist.filter((item) => item.indexOf(this.mytext) > -1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

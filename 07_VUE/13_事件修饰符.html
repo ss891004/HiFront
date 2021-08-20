@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+
+    <div id="box">
+
+        <!-- 事件冒泡现象 -->
+        <ul @click.self="handleUlClick()">
+            <!-- .self是事件源 是自己会触发 -->
+            <li @click.stop="handleLiClick1()">事件冒泡-11</li>
+            <li><a href="http://www.baidu.com" @click.prevent.stop="handleHrefClick()">click</a>
+                <!-- .prevent 是阻止默认行为  .stop 阻止冒泡 -->
+            </li>
+            <!-- <li @click="isFirst && handleLiClick1()">333</li> -->
+            <li @click.once="handleLiClick1()">333</li>
+            <!-- .once 只会触发一次 -->
+        </ul> 
+
+        <!-- 按键修饰符, 只有当按回车,才触发事件 -->
+        <input type="text" @keyup.enter="handleenter($event)">
+
+        <input type="text" @input="handleInput($event)" @keyup.65="handleKeyUp"/>
+
+    </div>
+
+    <script>
+        new Vue(
+            {
+                el: "#box",
+                methods: {
+                    handleli: function () {
+                        console.log("li click")
+                    },
+                    handleui: function () {
+                        console.log("ul click")
+                    },
+                    handleenter: function (ev) {
+                        console.log(ev)
+                    },
+                    handleLiClick1() {
+                        this.isFirst = false;
+                        console.log("handleLiClick1");
+                    },
+                    handleUlClick() {
+                        console.log("handleUlClick");
+                    },
+
+                    handleHrefClick() {
+                        console.log("handleHrefClick")
+                    },
+
+                    handleKeyUp(ev) {
+                        console.log(ev.keyCode, "只有按下回车键才会触发一次的事件")
+                    },
+
+
+                    handleAdd1() {
+                        this.count++;
+                    },
+                    handleAdd2() {
+                        this.count++;
+                    },
+                    handleClick(ev) {
+                        console.log(ev.target);
+                    },
+                    handleInput(ev) {
+                        console.log(ev.target.value);
+                        this.mytext = ev.target.value;
+                    }
+                }
+            }
+        )
+    </script>
+
+
+</body>
+
+</html>

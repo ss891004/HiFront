@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="{CHARSET}">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+
+		function $(id) {
+			return document.getElementById(id);
+		}
+
+		function doubleNum(n) {
+			if (n < 10) {
+				return "0" + n;
+			} else {
+				return n;
+			}
+		}
+
+		var i = 0;
+		var timer = null;
+		var isRunning=false;
+		window.onload = function () {
+			 function  startFunc() {
+				timer = setInterval(function () {
+					i++;
+					$("time_sec").innerHTML = doubleNum(i % 60);
+					$("time_min").innerHTML = doubleNum(parseInt(i / 60) % 60);
+					$("time_hour").innerHTML = doubleNum(parseInt(i / 3600));
+				}
+					, 1000);
+			}
+
+			$("btn1").onclick=function(){
+				if(isRunning){
+					$("btn1").innerHTML="开始";
+					clearInterval(timer);
+					isRunning=false;
+				}else{
+					$("btn1").innerHTML="暂停";
+					startFunc();
+					isRunning=true;
+				}
+			}
+
+			$("reset").onclick = function () {
+				clearInterval(timer);
+				i = 0;
+				isRunning=false;
+				$("time_sec").innerHTML = "00";
+				$("time_min").innerHTML = "00";
+				$("time_hour").innerHTML = "00";
+			}
+		}
+
+	</script>
+
+	<div id="div1" style="border:1;">
+		<span id="time_hour">00</span>
+		<span>:</span>
+		<span id="time_min">00</span>
+		<span>:</span>
+		<span id="time_sec">00</span>
+		<br>
+		<button id="btn1">开始</button>
+		<button id="reset">复位</button>
+	</div>
+</body>
+
+</html>

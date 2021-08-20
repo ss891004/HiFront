@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+v-if 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。
+v-if 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。
+相比之下，v-show 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
+一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。 -->
+
+    <div id="app">
+        <h1 v-if="awesome">Vue is awesome!</h1>
+
+        <h1 v-if="awesome1">Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1>
+
+        <template v-if="awesome2">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </template>
+
+
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+
+
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+
+        <button @click="handleClick()">send</button>
+        <div v-if="datalist.length">
+            <ul>
+                <li v-for="data in datalist">
+                    {{data}}
+                </li>
+            </ul>
+        </div>
+        <div v-else>
+            还未创建列表
+        </div>
+
+
+        <h1 v-show="ok">Hello!</h1>
+    </div>
+
+
+
+    <script>
+        var app = new Vue({ // vue初始化，全局变量 vm
+            el: '#app', //vue 渲染的开始地方
+            //放变量的地址
+            data: {
+                message: 'Hello Vue!',
+                awesome: true,
+                awesome1: true,
+                awesome2: true,
+                loginType: '',
+                type: 'C',
+                ok: true,
+                datalist: []
+            },
+            methods: {
+                handleClick() {
+                    setTimeout(() => {
+                        this.datalist = ["1111", "2222", "33333"]
+                    }, 2000)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

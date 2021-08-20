@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*
+			 递归：
+			 	1. 首先是临界值
+				2. 找到这次和上一次的关系
+			*/
+
+			function sum(n){
+				if(n==1){
+					return 1;
+				}else{
+					return sum(n-1)+n;
+				}
+			}
+
+			console.log(sum(100));
+			
+		</script>
+	</body>
+</html>

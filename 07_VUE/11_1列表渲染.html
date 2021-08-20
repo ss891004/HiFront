@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+
+
+    <style>
+        .active {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- v-for 指令需要使用 item in items 形式的特殊语法，其中 items 是源数据数组，而 item 则是被迭代的数组元素的别名。 -->
+    <ul id="example-1">
+        <li v-for="item in items" :key="item.message">
+            {{ item.message }}
+            <hr> {{ item.age }}
+        </li>
+    </ul>
+
+    <!-- -for 还支持一个可选的第二个参数，即当前项的索引。 -->
+    <ul id="example-2">
+        <li v-for="(item, index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+
+    <!-- 用 v-for 来遍历一个对象的 property。 -->
+    <ul id="v-for-object" class="demo">
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+
+    <!-- 供第二个的参数为 property 名称  -->
+    <ul id="v-for-object2" class="demo">
+        <div v-for="(value, name) in object">
+            {{ name }}: {{ value }}
+        </div>
+    </ul>
+
+    <!-- 用第三个参数作为索引 -->
+    <ul id="v-for-object3" class="demo">
+        <div v-for="(value, name, index) in object">
+            {{ index }}. {{ name }}: {{ value }}
+        </div>
+    </ul>
+
+    <div id="box">
+        <!-- todo list -->
+        <input type="text" v-model="text" />
+        <button @click="handleAdd()">add</button>
+        <!--增加项-->
+        <ul>
+            <li :class="data.isMarked?'active':''" v-for="data,index in list" @click="handleClick(index)">
+                {{data.value}} {{index}}
+                <button @click="handleDelClick(index)">del</button>
+                <button @click="handleMarkClick(index)">mark</button>
+
+            </li>
+        </ul>
+    </div>
+    <script>
+
+        // 使用以下方法操作数组,可以检查变动 push(),pop(),shift(),unshift(),splice(),sort(),reverse()
+        // filter(),concat(),slice(),map() 会生成新数组,
+
+
+
+        new Vue({
+            el: '#example-1',
+            data: {
+                items: [
+                    { message: 'Foo', age: 1 },
+                    { message: 'Bar', age: 2 }
+                ]
+            }
+        })
+
+
+
+
+        new Vue({
+            el: '#example-2',
+            data: {
+                parentMessage: 'Parent',
+                items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                ]
+            }
+        })
+
+        new Vue({
+            el: '#v-for-object',
+            data: {
+                object: {
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                }
+            }
+        })
+
+        new Vue({
+            el: '#v-for-object2',
+            data: {
+                object: {
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                }
+            }
+        })
+
+        new Vue({
+            el: '#v-for-object3',
+            data: {
+                object: {
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                }
+            }
+        })
+
+
+        var vm = new Vue({
+            el: "#box",
+
+            data: {
+                list: [],
+                text: '',
+                current: 0
+            },
+
+            methods: {
+                handleClick(index) {
+                    console.log(index);
+                    this.current = index;
+                },
+                handleAdd() {
+                    this.list.push({
+                        value: this.text,
+                        isMarked: false
+                    });
+                },
+                handleDelClick(index) {
+                    this.list.splice(index, 1)
+                },
+                handleMarkClick(index) {
+                    this.list[index].isMarked = !this.list[index].isMarked
+                }
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- div 就是一个根 -->
+    <div id="box">
+        <component1></component1>
+        <component2></component2>
+    </div>
+
+    <script>
+
+        // 全局定义组件 (作用域隔离)
+        Vue.component("component3", {
+            template: `<div>this is component3</div>`,
+        });
+
+        //template 中只能有一个根节点， 引用自定义组件时候，自定义组件必须先定义
+        // 组件中data属性，必须是函数，而且有返回值。
+        Vue.component("component1", {
+            template: `<div @click="getFun">this is component1 {{mytext}}
+            <component3></component3>
+            <component4></component4>
+            <component5></component5>
+            </div>`,
+            data() {
+                return {
+                    mytext: ""
+                }
+            },
+            methods:{
+                getFun(){
+                    console.log("getFun--");
+                    this.mytext="xxxxx"
+                }
+            },
+            // 定义局部组件
+            // 父子组件data 属性不能共享
+            components: {
+                component4:{
+                    template:`<div style="background:blue" @click="getFun2">this is component4 {{subtext}} </div>`,
+                    data(){
+                        return { subtext:""}
+                    },
+                    methods:{
+                        getFun2(){
+                            console.log("getFun2-----");
+                            this.subtext="YYYYYYY"
+                        }
+                    }
+
+                },
+                component5:{
+                    template:`<div style="background:red">this is component5</div>`,
+
+                }
+            },
+        });
+
+        Vue.component("component2", {
+            template: `<div>this is component2</div>`,
+        });
+
+
+        // Vue 实例，就是一个根组件
+        var vm = new Vue({
+            el: "#box",
+            data: {
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+
+        });
+    </script>
+</body>
+</html>
