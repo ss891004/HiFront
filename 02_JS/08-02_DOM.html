@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		window.onload = function () {
+
+			//获取页面中某个节点
+
+			var odiv = document.getElementById("div1");
+
+
+			console.log(odiv.title);
+			console.log(odiv.className);
+			odiv.id = "div11";
+			console.log(odiv.id);
+
+			console.log(odiv.style.width);
+			odiv.style.backgroundColor = 'blue';
+
+		}
+	</script>
+
+	<div id="div1" title="hello" class="box" style='width:300px;height: 300px; '>
+
+	</div>
+
+</body>
+
+</html>

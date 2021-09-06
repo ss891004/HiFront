@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		// 创建一个对象
+		var aa = new Object();
+
+		// 创建几个属性
+		aa.name='xxx';
+		aa.age=10;
+		aa.sex='男';
+
+		// 创建方法
+		aa.fun1= function(){
+			console.log("fun1....");
+		}
+		aa.fun2=function(){
+			console.log("fun2...");
+		}
+
+		// 调用属性和方法
+		console.log(aa.name);
+		aa.fun1();
+		aa.fun2();
+		/////////////////////////////////////////
+
+		// 若在创建一个对象，需要重新再设置熟悉和方法
+
+		/////////////////////////////////////////
+		//改进，封装创建对象的函数
+		console.log("@@@@@@@@@@@@@@@");
+		function CreatePerson(name, age , sex){
+			//1
+			var p = new Object();
+			p.name=name;
+			p.age=age;
+			p.sex=sex;
+
+			p.fun1=function(){
+				console.log("CreatePerson-fun1");
+			}
+
+			p.fun2=function(){
+				console.log("CreatePerson-fun2");
+			}
+
+			return p;
+		}
+
+		var p1= CreatePerson("aaa",12,"man");
+		console.log(p1.name);
+		p1.fun1();
+		p1.fun2();
+
+		var p2= CreatePerson("bbb",12,"ss");
+		console.log(p2.name);
+		p2.fun1();
+		p2.fun2();
+
+		/////////////////////////////////////////
+		//官方函数创建对象
+		console.log("################");
+		// 使用this 和new 关键字
+
+		function Person(name, age , sex){
+			// 1. 原来
+
+			// 2 加工
+			this.name=name;
+			this.age=age;
+			this.sex=sex;
+
+			this.fun1=function(){
+				console.log("CreatePerson-fun1");
+			}
+
+			this.fun2=function(){
+				console.log("CreatePerson-fun2");
+			}
+
+			// 3返回对象
+			//********当使用new的时候，可以省略第1，3部分。效果是一致的
+		}
+
+		var p3 = new Person("p3",22,"xyz");
+		p3.fun1();
+		p3.fun2();
+
+		var p4 = new Person("p4",22,"xyz");
+		p4.fun1();
+		p4.fun2();
+
+		// 说明上述的2个对象，各自都拥有不同的属性和方法
+		console.log("比较不同对象的调用相同的函数:"+(p3.fun1==p4.fun1));
+
+		/////////////////////////////////////////////
+		function Person(name, age , sex){
+			// 1. 原来
+
+			// 2 加工
+			this.name=name;
+			this.age=age;
+			this.sex=sex;
+
+			this.fun1=function(){
+				console.log("CreatePerson-fun1");
+			}
+
+			this.fun2=function(){
+				console.log("CreatePerson-fun2");
+			}
+
+			// 3返回对象
+			//********当使用new的时候，可以省略第1，3部分。效果是一致的
+		}
+
+
+		</script>
+	</body>
+</html>

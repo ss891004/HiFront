@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		// 基本数据类型  数组  对象 
+
+		var arr1 = new Array(10,20,30);
+		var arr2 = new Array(40);
+
+		console.log(arr1.push===arr2.push);   // 两个完全不一样的数组对象，调用的方法确实同一个。
+
+		arr1.func1 = function(){
+			console.log("arr1-func1");
+		}
+		arr2.func1 = function(){
+			console.log("arr2-func1");
+		}
+
+		console.log(arr1.func1===arr2.func1);  // 2个对象都以自己的函数。
+
+
+		Array.prototype.func2=function(){
+			console.log("array-func2");
+		}
+
+		console.log(arr1.func2===arr2.func2);  // 2个对象都以自己的函数。
+
+
+		</script>
+	</body>
+</html>

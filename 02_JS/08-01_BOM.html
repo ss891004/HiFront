@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="{CHARSET}">
+		<meta charset="utf-8">
 		<title></title>
 	</head>
 	<body>
 		<script type="text/javascript">
-			
-			//alert
-			alert("加入购物车成功！");
-			
-			//confirm
-			//确定/取消
-			var res=confirm("确定删除吗？");//返回布尔
-			if(res){
-				alert("执行删除");
-			}else{
-				alert("撤消删除");
-			}
-			
-			//prompt
-			var num=prompt("请输入一个数");
-			if(num>0){
-				alert("正数");
-			}else{
-				alert("非正数(0/负数)");
-			}
-
-			function btnclick(){
-				open("http://www.baidu.com","xxx");
-			}
-
 		
+		/*
+		BOM  浏览器对象模型
+		window
+			document
+				anchors
+				forms
+				images
+				links
+				location
+			frames
+			history
+			location
+			navigator
+			screen
+		*/
+
+		// 系统对话框, 都是window 的方法
+		alert("xxxx");
+
+		var a= confirm("yyyy");
+		console.log(a);
+
+		var b= prompt("请输入一个数字",0);
+		console.log(b);
+
+		// open
+
+		function openDemo(){
+			open("https://www.baidu.com","xxx","width=400,hight=400");
+		}
+
+		// histroy 对象
+		/*
+		history.length 输出当前窗口历史记录的条数
+
+		history.back()
+		history.forward()
+		history.go()
+		*/
+
+
+		//location 地址栏
+		/*
+		location.assign()
+		location.replace()
+		location.reload()
+		
+		*/
 
 
 		</script>
+		<button onclick="openDemo();">打开一个新窗口</button>
+		<button onclick='alert(history.length);'>获取历史记录</button>
+
 	</body>
-	<button	onclick="btnclick()">hhh</button>
+
+
 </html>
