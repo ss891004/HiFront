@@ -27,9 +27,6 @@
 			// 添加自己的属性
 			this.money = money;
 		}
-
-		//Teacher.prototype=Person.prototype;
-
 		for (var funcName in Person.prototype) {
 			Teacher.prototype[funcName] = Person.prototype[funcName];
 		}
@@ -47,6 +44,7 @@
 
 		var a1 = new Person("xxx","yy",12);
 		a1.fun1();
+
 
 		var a2 = new Teacher("yyy","zzz",23,10000);
 		a2.fun1();
