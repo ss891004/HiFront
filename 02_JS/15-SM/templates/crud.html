@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询用户明细</title>
+
+
+</head>
+
+<body>
+    <script src="../static/ajax.js"></script>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById("btn1");
+            console.log(oBtn);
+
+            // 这是一个对象，需要转换成string
+            var data = { "email": "eee" + randomString(32), "password": "ddddd" };
+
+            oBtn.onclick = function () {
+                $ajax(
+                    "post",
+                    "http://127.0.0.1:8000/users/",
+                    data,
+                    function (result) {
+                        console.log(result);
+                    },
+                    function (msg) {
+                        console.log(msg);
+
+                    }
+                )
+            }
+
+            var oBtn2 = document.getElementById("btn2");
+            var tb1=document.getElementById('t1');
+
+            oBtn2.onclick = function () {
+                $ajax(
+                    "get",
+                    "http://127.0.0.1:8000/users/?skip=0&limit=100",
+                    null,
+                    function (result) {
+                        var obj= JSON.parse(result);
+                        var html_str;
+                        for (var item in obj){
+                            html_str+="<tr>";
+                                html_str+="<td>"+obj[item].email+"</td>"; 
+                                html_str+="<td>"+obj[item].id+"</td>"; 
+                                html_str+="<td>"+obj[item].is_active+"</td>"; 
+                                html_str+="<td>"+obj[item].items+"</td>"; 
+                                html_str+="</tr>"; 
+                        }
+                        
+                        tb1.innerHTML=html_str;
+
+
+
+                    },
+                    function (msg) {
+                        console.log(msg);
+
+                    }
+                )
+            }
+
+
+
+        }
+
+
+
+    </script>
+    <button id='btn1'>Create New User</button>
+    <button id='btn2'>List Users</button>
+    <table>
+        <thead>
+            <tr>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+            </tr>
+        </thead>
+        <tbody id='t1'>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -2,14 +2,24 @@ from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+from starlette.requests import Request
+from starlette.staticfiles import StaticFiles
 
 import crud, models, schemas
 from database import SessionLocal, engine
+from starlette.templating import Jinja2Templates
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+templates = Jinja2Templates(directory="templates")
+app.mount('/static', StaticFiles(directory='static'), name='static')
+
+
+@app.get("/")
+async def main(request: Request):
+    return templates.TemplateResponse('crud.html', {'request': request})
 
 # Dependency 依赖项
 def get_db():
