@@ -5,6 +5,37 @@
 	<meta charset="utf-8">
 	<title></title>
 	<script type="text/javascript">
+
+		//数组遍历
+		var arr =[10,20,30,40,50];
+		for (var index=0; index<arr.length;index++){
+			console.log(arr[index]);
+		}
+		console.log("@@@@@@@@@@@@@@@@@");
+		for(var index in arr){
+			console.log(arr[index]);
+		}
+		console.log("@@@@@@@@@@@@@@@@@");
+		arr.forEach(
+			function(index,item,arr){
+				console.log(index+" "+ item);
+			}
+		);
+
+
+		//对象遍历
+		var person={
+			name:"xxx",
+			age:12,
+			sex:"man",
+			locaiton:"haimen"
+		};
+		console.log("@@@@@@@@@@@");
+		for(var index in person){
+			console.log(person[index]);
+		}
+
+
 	
 	</script>
 
