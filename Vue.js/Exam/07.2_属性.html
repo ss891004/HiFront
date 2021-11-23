@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7大属性-生命周期-钩子函数</title>
+    <script src="../vue.js"></script>
+    <script src="../axios.min.js"></script>
+</head>
+<body>
+    <!-- 这是View  现在就是templet模板-->
+    <div id="app">
+        <button v-on:click='x_1'>点这儿</button>
+        <button v-on:click='x_2'>点这儿</button>
+        {{ getdata }}
+    </div>
+    <!--  注意如果是vscode要安装插件Live Server开启HTTP服务 -->
+
+
+<!-- 
+    el属性
+    用来指示vue编译器从什么地方开始解析 vue的语法，可以说是一个占位符。
+
+    data属性
+    用来组织从view中抽象出来的属性，可以说将视图的数据抽象出来存放在data中。
+
+    template属性
+    用来设置模板，会替换页面元素，包括占位符。
+
+    methods属性
+    放置页面中的业务逻辑，js方法一般都放置在methods中
+
+    render属性
+    创建真正的Virtual Dom
+
+    computed属性
+    保存计算结果    
+
+    watch属性
+    watch:function(new,old){}
+    监听data中数据的变化
+    两个参数，一个返回新值，一个返回旧值，
+ -->
+
+
+
+    <script>
+        var vm = new Vue
+        (
+            {
+                el: '#app', 
+                data:
+                {
+                    getdata:'',
+                },
+                // mounted()
+                // {
+                //     axios.get('/data.json').then
+                //     (
+                //         response=>
+                //         (
+                //             console.log(response.data)
+                //             // 注意.data才是数据
+                //         )
+                //     );
+                //     axios.get('/data.json').then(response=>(this.getdata = response.data));
+                // },
+
+
+                // ==================mounted安装（钩子函数）自动调用==================
+                mounted: function () 
+                {
+                    axios.get('/data.json').then(response=>(console.log(response.data)));
+                    axios.get('/data.json').then(response=>(this.getdata = response.data));
+                },
+
+
+                // ==================methods方法（七大属性之一） 需要被调用==================
+                methods: 
+                {
+                    x_1:function(){axios.get('/data.json').then(response=>(console.log(response.data)))},
+                    x_2:function(){axios.get('/data.json').then(response=>(this.getdata = response.data))},
+                }
+            }
+        );
+    </script>
+</body>
+</html>
