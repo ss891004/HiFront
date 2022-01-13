@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="sendserver()">send server</button>
+  <script>
+    const ws = new WebSocket('ws://localhost:8080/')
+
+    ws.onopen=function(){
+      console.log('与服务器连接')
+    }
+    //http://localhost:8080/index.html
+
+    ws.onmessage=function(msg){
+      console.log(msg)
+      console.log('来自服务器的问候:'+msg.data)
+      let data=JSON.parse(msg.data)
+      switch(data.type){
+        case 1 :
+          alert('恭喜中间')
+          break;
+      
+      case 2 :
+          alert('会员到期')
+          break;
+      
+      case 3 :
+          alert('收到信息请注意查收')
+          break;
+    }
+  }
+
+    ws.onclose=function(){
+      console.log('服务器主动断开连接')
+    }
+    function sendserver() {
+        ws.send('你好我来了')
+    } 
+
+  </script>
+</body>
+</html>

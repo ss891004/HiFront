@@ -10,8 +10,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: '/tmp/'}).array('image'));
  
-app.get('/expressfile.html', function (req, res) {
-    res.sendFile( __dirname + "/" + "expressfile.html" );
+app.get('/express_file.html', function (req, res) {
+    res.sendFile( __dirname + "/" + "express_file.html" );
 })
  
 app.post('/file_upload', function (req, res) {

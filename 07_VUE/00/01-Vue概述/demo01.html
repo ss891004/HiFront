@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- jQuery:主要用来操作DOM -->
+    <!-- vue应用的容器 -->
+    <div id="app">
+        <!-- {{}}双括号可以直接显示Vue实例的属性 -->
+        {{message}}
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+        // Vue构造函数可以创建Vue的实例
+        const vue = new Vue({
+el: '#app', // el是元素element的简写，‘#app’是ID选择器方式绑定上面的div节点
+                    // el:'.app', el 是挂载点， 不仅仅是id选择器，class选择器，标签选择器都可以的
+                    // 这里是Model：数据（后端给）
+                    data:  // 数据对象
+                    {
+                        message: 'Hello Vue!'
+                    }
+                    // 如果没有mvvm，后端给数据，前端message是不会变化
+        });
+        //挂载Vue应用
+        vue.$mount("#app");
+    </script>
+</body>
+</html>
