@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- div 就是一个根 -->
+    <div id="box">
+        <!-- 父传子， 通过props 向下传递 -->
+        <component1 myname="qerqwerwdafdf" :mytype="true"></component1>
+        <br/>
+        <!-- 从实例vue中的获取data中的属性，需要绑定 -->
+        <component1 :myname="hello" :mytype="true"></component1>
+    </div>
+
+    <script>
+        //template 中只能有一个根节点， 引用自定义组件时候，自定义组件必须先定义
+        // 组件中data属性，必须是函数，而且有返回值。
+        Vue.component("component1", {
+            template: `<div @click="getFun">this is component1 {{mytext}}
+                <div>hhh</div>  <div>{{myname}}</div> 
+            </div>`,
+            data() {
+                return {
+                    mytext: "3333"
+                }
+            },
+            methods:{
+                getFun(){
+                    console.log("getFun--");
+                    this.mytext="xxxxx"
+                }
+            },
+
+            //属性验证
+            props:{
+                myname:String,
+                mytype:Boolean
+            }
+            
+        });
+
+
+        // Vue 实例，就是一个根组件
+        var vm = new Vue({
+            el: "#box",
+            data: {
+                hello:"xyz~~~~",
+                // 组件与组件 的状态需要相互隔离， 要设计成函数。
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+
+        }); //根组件(root )
+    </script>
+</body>
+</html>
