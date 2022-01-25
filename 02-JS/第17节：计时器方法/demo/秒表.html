@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="start">开始</button>
+    <button class="pause">暂停</button>
+    <button class="stop">结束</button>
+    <h1 class="time"></h1>
+    <script>
+        let start = document.querySelector(".start");
+        let pause = document.querySelector(".pause");
+        let stop = document.querySelector(".stop");
+        let time = document.querySelector(".time");
+        let timer = null;
+        let seconds = 0, ms = 0;
+        time.innerHTML = `${seconds}:${ms}`
+        start.onclick = function(){
+            clearInterval(timer);
+            timer = setInterval(() => {
+                ++ms
+                if(ms === 10){
+                    ++seconds;
+                    ms = 0;
+                }
+                time.innerHTML = `${seconds}:${ms}`
+            } , 100)
+        }
+        pause.onclick = function(){
+            clearInterval(timer);
+        }
+        stop.onclick = function(){
+            seconds = 0;
+            ms = 0;
+            time.innerHTML = `${seconds}:${ms}`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //回调函数：将函数作为一个参数传递给另一个函数。
+
+        function fun(fn){
+            fn();
+        }
+
+        fun( () => {
+            console.log("我是回调函数")
+        })
+
+    </script>
+</body>
+</html>

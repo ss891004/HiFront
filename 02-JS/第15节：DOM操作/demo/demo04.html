@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .picture-list img{
+            width:320px;
+            height:160px;
+        }
+        .big-picture img{
+            width:640px;
+            height:320px;
+        }
+        .big-picture{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="picture-list">
+        <img src="images/1.png" alt="">
+        <img src="images/2.png" alt="">
+        <img src="images/3.png" alt="">
+    </div>
+    <div class="big-picture"></div>
+    <script>
+        let imgList = document.querySelectorAll('.picture-list img');
+        let bigPictrue = document.querySelector('.big-picture')
+        let picList = document.querySelector('.picture-list')
+        for(let i in imgList){
+            imgList[i].onmouseenter = function(){
+                // console.log(this.src);
+                bigPictrue.innerHTML = `<img src='${this.src}'>`
+            }
+            imgList[i].onmouseleave = function(){
+                bigPictrue.innerHTML = ''
+            }
+        }
+        picList.onmousemove = function(e){
+            let x = e.clientX;
+            let y = e.clientY;
+            bigPictrue.style.top = y + 10 + "px";
+            bigPictrue.style.left = x + 10 + "px";
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height:320px;
+            width:640px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/1.png" alt="">
+    </div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <script>
+        let img = document.querySelector("img");
+        // btn.onclick = function(){
+        //     img.src = "images/2.png"
+        // }
+        let imagesSrcList = ["images/1.png","images/2.png","images/3.png"];
+        let btns = document.querySelectorAll("button");
+        for(let i in btns){
+            btns[i].onclick = function() {
+                // console.log(imagesSrcList[i]);
+                img.src = imagesSrcList[i];
+            }
+        }
+    </script>
+</body>
+</html>

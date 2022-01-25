@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let result1 = fun(10,20);
+        // let result2 = fun(100,200);
+        // console.log(result1);
+        // console.log(result2);
+        // 函数声明提升
+        // function fun(n,m){
+        //     return n + m;
+        // }
+        
+        //回调函数：将匿名函数作为参数传递给另外一个函数，或方法。
+        // setInterval(function(){
+        //     console.log("hello")
+        // },1000)
+
+        // 函数表达式
+        // let result = fun(10,20);
+        // console.log(result)
+        // const fun = function(n,m){
+        //     return n + m;
+        // }
+        //方法
+
+        const cat = {
+            name:"miaomiao",
+            // sayName:function(){
+            //      console.log(this.name);
+            // }
+            sayName(){
+                 console.log(this.name);
+            }
+        }
+        cat.sayName();
+
+        
+    </script>
+</body>
+</html>

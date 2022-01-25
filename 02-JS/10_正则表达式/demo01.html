@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 用户输入
+        var str = "2019-12-01"
+        //截取字符串
+        var reg = /^(\d{4})-(\d{2})-(\d{2})$/;
+        var result = reg.exec(str);
+        console.log(result[1]);
+        console.log(result[2]);
+        console.log(result[3]);
+        
+    </script>
+</body>
+</html>

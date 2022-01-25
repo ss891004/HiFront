@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:2000px;
+        }
+        .to-top{
+            position: fixed;
+            bottom:100px;
+            right:100px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world</h1>
+    <button class="to-top">↑</button>
+    <script>
+        let toTop = document.querySelector(".to-top");
+        // window.onscroll = function(){
+        //     console.log("计数器")
+        //     if(document.documentElement.scrollTop > 0){
+        //         toTop.style.display = "inline-block"
+        //     }else{
+        //         toTop.style.display = "none"
+        //     }
+        // }
+        toTop.onclick = function(){
+            // 参数xpos,ypos
+            window.scrollTo(0,0);
+        }
+        window.onscroll = throttle(() => {
+            console.log("计数器")
+            if(document.documentElement.scrollTop > 0){
+                toTop.style.display = "inline-block"
+            }else{
+                toTop.style.display = "none"
+            }
+        },500);
+
+        // 防抖
+        // function debounce(fn,delay){
+        //     let timer = null;
+        //     return function(){
+        //         if(timer !== null){
+        //             clearTimeout(timer);
+        //         }
+        //         timer = setTimeout(fn,delay);
+        //     }
+        // }
+
+        //节流
+        function throttle(fn,delay){
+            let mark = true;
+            return function(){
+                if(mark){
+                    setTimeout(() => {
+                        fn();
+                        mark = true
+                    },delay)
+                }
+                mark = false;
+            }
+        }
+    </script>
+</body>
+</html>

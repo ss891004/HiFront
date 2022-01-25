@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let d = new Date();
+        // console.log(d.getFullYear());
+        // console.log(d.getMonth());
+        // console.log(d.getDate());
+
+        Date.prototype.dateFormate = function(){
+            let year = this.getFullYear();
+            let month = this.getMonth();
+            let date = this.getDate();
+            return `${year}年${month + 1}月${date}日`
+        }
+
+        let d = new Date("1999-10-1");
+        let result = d.dateFormate();
+        console.log(result);
+    </script>
+</body>
+</html>

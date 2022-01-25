@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let equipment = checkagent(navigator.userAgent)
+        console.log(equipment)
+        function checkagent(ua) {
+            let isWindowsPhone = /(?:Windows Phone)/.test(ua),
+                isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+                isAndroid = /(?:Android)/.test(ua),
+                isFireFox = /(?:Firefox)/.test(ua),
+                isChrome = /(?:Chrome|CriOS)/.test(ua),
+                isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+                isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+                isPc = !isPhone && !isAndroid && !isSymbian,
+                isWechat = /(?:MicroMessenger)/.test(ua);
+            let equipment = {
+                isTablet: isTablet,
+                isPhone: isPhone,
+                isAndroid: isAndroid,
+                isPc: isPc,
+                isWechat:isWechat
+            };
+            if (equipment.isAndroid) {
+                return "安卓手机";
+            } else if (equipment.isPhone) {
+                return "苹果手机";
+            } else if (equipment.isTablet) {
+                return "平板";
+            } else if (equipment.isPc) {
+                return "电脑";
+            }
+        }
+    </script>    
+</body>
+</html>

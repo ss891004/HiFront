@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数基本语法
+        // const fun = x => x * x;
+        // let result = fun(2);
+        // console.log(result);
+
+        const cat = {
+            name:"miaomiao",
+            sayName(){
+                setInterval(() =>  {
+                    console.log(this.name)
+                },1000)
+            }
+        }
+        cat.sayName();
+
+        //箭头函数和普通函数的this指向不同
+        //普通函数指向的是调用该函数的对象。
+        // 箭头函数：在哪里定义，this就指向谁。
+    </script>
+</body>
+</html>

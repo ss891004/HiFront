@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es2015支持类的概念
+        class Dog{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+
+            sayName(){
+                console.log(`我是${this.name}`)
+            }
+        }
+
+        let dog = new Dog("旺财",2);
+        dog.sayName();
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 防抖
+        // let timer = null;
+        // window.onscroll = function(){
+        //     if(timer !== null){
+        //         clearTimeout(timer);
+        //     }
+        //     timer = setTimeout(() => {
+        //         console.log("hello world")
+        //         timer = null;
+        //     },2000)
+        // }
+        //节流:每两秒钟执行一次
+        // let mark = true;
+        // window.onscroll = function(){
+        //     if(mark){
+        //         setTimeout(() => {
+        //             console.log("hello world");
+        //             mark = true;
+        //         },2000)
+        //     }
+        //     mark = false;
+        // }
+
+        
+        window.onscroll = throttle(() => {
+            console.log("hello world");
+        },300);
+
+        //使用闭包封装防抖函数
+        // function debounce(fn,delay){
+        //     let timer = null;
+        //     function eventFun(){
+        //         if(timer !== null){
+        //             clearTimeout(timer);
+        //         }
+        //         timer = setTimeout(() => {
+        //             fn();
+        //             timer = null
+        //         },delay)
+        //     }
+        //     return eventFun;
+        // }
+
+        //节流
+        function throttle(fn,delay){
+            let mark = true
+            return function(){
+                if(mark){
+                    setTimeout(() => {
+                        fn();
+                        mark = true;
+                    },delay)
+                }
+                mark = false;
+            }
+        }
+    </script>
+</body>
+</html>

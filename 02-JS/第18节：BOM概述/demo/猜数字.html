@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = Math.floor(Math.random() * 100 + 1);
+
+        function guessNumber(){
+            let inputNumber = prompt("请输入你猜的数字");
+            if(inputNumber == number){
+                alert("回答正确！")
+            }else if(inputNumber > number){
+                alert("大于目标数字")
+                guessNumber();
+            }else if(inputNumber < number){
+                alert("小于目标数字")
+                guessNumber();
+            }
+        }
+        guessNumber();
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .swiper{
+            width:640px;
+            height:320px;
+            overflow: hidden;
+            position: relative;
+        }
+        .images-container{
+            width:1920px;
+            height:320px;
+            display: flex; 
+            transition: transform 0.5s;
+        }
+        .images-container img{
+            width:640px;
+            height:320px;
+           
+        }
+        .number-list{
+            position: absolute;
+            bottom:0px;
+        }
+        /* .images-container:hover{
+            transform: translate(0px);
+        } */
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <div class="images-container">
+            <img src="images/1.png" alt="">
+            <img src="images/2.png" alt="">
+            <img src="images/3.png" alt="">
+        </div>
+        <div class="number-list">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+    </div>
+    <script>
+        let imagesContainer = document.querySelector(".images-container");
+        let btnList = document.querySelectorAll(".number-list button");
+        for(let i in btnList){
+            btnList[i].onclick = function(){
+                // console.log(i);
+                imagesContainer.style.transform = `translate(${-i * 640}px)`
+            }
+        }
+    </script>
+</body>
+</html>

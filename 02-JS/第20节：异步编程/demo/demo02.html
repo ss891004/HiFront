@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ajax与服务器通信，异步获取数据。
+
+        //异步获取数据的方法
+        let target = "hello world";
+
+        //获取数据的方法：1：用回调函数获取数据;2.用promise对对象获取数据,
+        
+        // 回调函数
+        // function getData(fn){
+        //     setTimeout(() => {
+        //         // reture只能返回同步的数据
+        //         fn(target)
+        //     },500)
+        // }
+
+        //promise版本的getData
+        function getData(){
+            return new Promise( (resolve) => {
+                setTimeout( () => {
+                    resolve(target);
+                }, 1000)
+            } )
+        }
+
+        //3:async函数解决异步问题。
+
+        async function fun(){
+            let data1 = await getData();
+            console.log(data1);
+            let data2 = await getData();
+            console.log(data2);
+            let data3 = await getData();
+            console.log(data3);
+        }
+        fun();
+
+        //我们只能通过getData来获取数据（target）
+        // getData( (d) => {
+        //     console.log(d);
+        // } )
+
+        // let p = getData();
+        // p.then( (data) => {
+        //     console.log(data);
+        // })
+
+        
+    </script>
+</body>
+</html>

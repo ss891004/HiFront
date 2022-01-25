@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="name" placeholder="姓名">
+    <input type="text" class="age" placeholder="年龄">
+    <button>添加</button>
+    <script>
+        let btn = document.querySelector("button");
+        let inputName = document.querySelector(".name");
+        let inputAge = document.querySelector(".age");
+        let ul = document.querySelector(".list");
+        let studentList = [];
+        // 导致代码重复
+        // let student = {
+        //     name:"",
+        //     age:""
+        // }
+        // btn.onclick = function(){
+        //     student.name = inputName.value;
+        //     student.age = inputAge.value;
+        //     studentList.push(student);
+        //     console.log(studentList);
+        // }
+
+        // 改良
+        function Student(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        btn.onclick = function(){
+            let student = new Student(inputName.value,inputAge.value);
+            studentList.push(student);
+            console.log(studentList);
+        }
+    </script>
+</body>
+</html>

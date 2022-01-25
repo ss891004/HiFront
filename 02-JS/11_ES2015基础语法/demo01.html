@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //解构赋值
+        // let [n,m] = [10,20];
+
+        // let n = 10;
+        // let m = 20;
+
+        // [n,m] = [m,n]
+
+        // console.log(n)
+        // console.log(m)
+
+        // let name = "xiaoming";
+        // let age = 10;
+
+        // let {age,name} = {name:"xiaoming",age:10}
+
+        // console.log(name);
+        // console.log(age);
+
+        let xm = {name:"xiaoming",age:10}
+
+        function getName( {name} ){
+            return name
+        }
+        let result = getName(xm);
+        console.log(result);
+    </script>
+</body>
+</html>
