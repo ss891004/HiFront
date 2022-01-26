@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        .nav>li{
+            float: left;
+            width:120px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: yellow;
+        }
+        .sub-nav{
+            /* display: none; */
+            overflow: hidden;
+            height:0px;
+            transition:height .5s;
+        }
+        .sub-nav>li{
+            border:1px solid red;
+            background-color: blue;
+            height:30px;
+            box-sizing: border-box;
+        }
+        .sub-nav a{
+            color:white
+        }
+        .nav>li:hover .sub-nav{
+            height:300px
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">书籍</a>
+            <ul class="sub-nav">
+                <li><a href="">JavaScript高级</a></li>
+                <li><a href="">JavaScript高级</a></li>
+                <li><a href="">JavaScript高级</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">书籍</a>
+            <ul class="sub-nav">
+                <li><a href="">JavaScript高级</a></li>
+                <li><a href="">JavaScript高级</a></li>
+                <li><a href="">JavaScript高级</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="">书籍</a>
+            <ul class="sub-nav">
+                <li><a href="">JavaScript高级</a></li>
+                <li><a href="">JavaScript高级</a></li>
+                <li><a href="">JavaScript高级</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

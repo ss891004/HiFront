@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        li{
+            width:120px;
+            background-color:yellow;
+            list-style: none;
+            text-align: center;
+        }
+        .menu>li{
+            float:left;
+        }
+        .sub-menu>li{
+            height:0px;
+            transition: height 0.3s;
+            overflow: hidden;
+        }
+        .menu>li:hover > .sub-menu>li{
+            display: block;
+            height:30px;
+        }
+        .clear{
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li>
+            <a href="">书籍</a>
+            <ul class="sub-menu">
+                <li>js高级程序设计</li>
+                <li>js高级程序设计</li>
+                <li>js高级程序设计</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">书籍</a>
+            <ul class="sub-menu">
+                <li>js高级程序设计</li>
+                <li>js高级程序设计</li>
+                <li>js高级程序设计</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">书籍</a>
+            <ul class="sub-menu">
+                <li>js高级程序设计</li>
+                <li>js高级程序设计</li>
+                <li>js高级程序设计</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="clear"></div>
+    <h1>hello world</h1>
+</body>
+</html>

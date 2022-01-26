@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        @keyframes wave{
+            50%{
+                transform: translate(-50px);
+            }
+        }
+        @keyframes ship{
+            50%{
+                transform: rotate(15deg);
+            }
+        }
+        .sea{
+            position: fixed;
+            bottom:0px;
+        }
+        .wave1{
+            position: absolute;
+            bottom:60px;
+            height:70px;
+            animation: wave 2s infinite;
+        }
+        .wave2{
+            position: absolute;
+            bottom:30px;
+            height:70px;
+            animation: wave 6s infinite;
+        }
+        .wave3{
+            position: absolute;
+            bottom:0px;
+            height:70px;
+            animation: wave 4s infinite;
+        }
+        .ship{
+            position: fixed;
+            left:30%;
+            animation: ship 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="ship" src="images/ship.png" alt="">
+        <div class="sea">
+            <img class="wave1" src="images/wave1.png" alt="">
+            <img class="wave2" src="images/wave2.png" alt="">
+            <img class="wave3" src="images/wave3.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

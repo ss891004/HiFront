@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width:800px;
+            height:300px;
+            border:1px solid red;
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: flex-start;
+            align-items:baseline;
+        }
+        .box{
+            background-color: yellow;
+            border:1px solid red;
+            /* height:100px; */
+
+        }
+        .box1{
+            /* flex-grow: 2; */
+            flex:0 1 150px;
+        }
+        .box2{
+            /* flex:1; */
+            /* flex-grow: 5; */
+            flex:0 2 150px;
+        }
+        .box3{
+            /* flex-grow: 1; */
+            flex:0 1 150px;
+            align-self: baseline ;
+        }
+        a{
+            background-color: blue;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <a href="">naodui</a> -->
+        <div class="box box1">123</div>
+        <div class="box box2">456</div>
+        <div class="box box3">789</div>
+    </div>
+</body>
+</html>

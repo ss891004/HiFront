@@ -2,7 +2,7 @@
 
 ### 一、JavaScript概述
 
-1995年，JavaScript问世，主要目的是处理表单验证。起初命名为LiveScript，后来因为java语言盛行，更名为JavaScript，目的是希望借着Java的火爆流行起来（JavaScript的开发者一定想不到JavaScript在20多年后的今天会如此盛行）。
+1995年，JavaScript问世，主要目的是处理表单验证。起初命名为LiveScript，后来因为java语言盛行，更名为JavaScript，目的是希望借着Java的火爆流行起来。
 
 1997年，欧洲计算机制造商协会发布了ECMAScript，在接下来的几年里，web浏览器厂商就开始将ECMAScript作为JavaScript实现的标准。
 

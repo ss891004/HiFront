@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <input type="button" value="input按钮">
+    <script src="script/jquery.js"></script>
+    <script>
+        $("button").click(function(){
+            // 获取索引
+            // let index = $(this).index();
+            // console.log(index);
+            // let text = $(this).text();
+            // console.log(text);
+            // $(this).text("新文本")
+            // let height = $(this).css("height")
+            // console.log(height);
+            // $(this).css("height","100px")
+            $(this).css({
+                height:"100px",
+                width:"100px"
+            })
+        })
+
+        $("input").click(function(){
+            $(this).val("新的value值")
+        })
+
+        
+    </script>
+</body>
+</html>

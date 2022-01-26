@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:2000px;
+        }
+        .box{
+            width:100px;
+            height:100px;
+            background-color: red;
+            border:1px solid #fff;
+        }
+        .pos{
+            /* 绝对定位 */
+            /* position: absolute; */
+            /* 相对定位 */
+            /* position: relative; */
+            /* 固定定位 */
+            position: fixed;
+            top:50px;
+            left:80px;
+            z-index:999;
+        }
+        .pos-ab{
+            position: absolute;
+            top:50px;
+            left:50px;
+            z-index:2;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box pos">2</div>
+    <div class="box pos-ab">3</div>
+</body>
+</html>
