@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+
+<body>
+    <div id="myApp"> {{ message10 }} </div>
+    <script>
+
+        // const myApp = {
+        //     data() {
+        //         return {
+        //             message10: 'Hello Vue.js World!'
+        //         }
+        //     }
+        // }
+        // Vue.createApp(myApp).mount('#myApp')
+
+        // Vue.createApp({
+        //     data() {
+        //         return {
+        //             message10: 'Hello Vue.js World!'
+        //         }
+        //     },
+        // }).mount('#myApp')
+
+        const myApp = Vue.createApp({
+            data() {
+                return {
+                    message10: 'Hello Vue.js World!'
+                }
+            },
+        }).mount('#myApp')
+
+    </script>
+</body>
+
+</html>

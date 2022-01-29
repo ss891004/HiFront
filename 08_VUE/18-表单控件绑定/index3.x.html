@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+
+<body>
+<div id="myApp">
+    <h1>表单控件绑定</h1>
+    <h1>为表单控件元素创建双向数据绑定。（将JS变量的值“快速”设定到控件上，然后将用户输入的内容“快速”设置回JS变量）</h1>
+    <input type="text" v-model="message" placeholder="来呀，编辑我吧！">
+    <p>Message is: {{ message }}</p>
+    <textarea v-model="message" placeholder="加入多行编辑" rows="8" cols="34"></textarea>
+</div>
+<script>
+    var myApp = Vue.createApp({
+        data(){
+            return{
+                message: "我爱马里奥",
+            }
+        },
+        methods: {
+        },
+    }).mount("#myApp");
+</script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+<body>
+<div id="myApp">
+    <div>今天的天气是<today-weather/></div>
+</div>
+<script>
+    const myApp = Vue.createApp({
+    });
+
+    myApp.component('today-weather', {
+        data(){
+            return {
+                todayWeather: '雨加雪'
+            };
+        },
+        template: '<strong>{{todayWeather}}</strong>'
+    });
+    
+    myApp.mount("#myApp")
+</script>
+</body>
+
+</html>

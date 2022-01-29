@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+
+<body>
+<div id="myApp">
+    <h1 v-show="result">任天堂新一代主机Switch</h1>
+    <button @click="btnClick">显示按钮</button>
+</div>
+<script>
+    Vue.createApp({
+        data(){
+            return{
+                result: true
+            }
+        },
+        methods: {
+            btnClick: function(){
+                this.result = !this.result;
+            },
+        },
+    }).mount("#myApp");
+</script>
+</body>
+
+</html>

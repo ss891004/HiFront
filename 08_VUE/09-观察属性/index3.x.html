@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>watch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+
+<body>
+<div id="myApp">
+    <p>新一代主机Switch的价格是：{{price}}円，含税价格为：{{priceInTax}}円，折合人民币为：{{priceChinaRMB}}元。</p>
+    <button @click="btnClick(10000)">加价</button>
+</div>
+<script>
+    const myApp = Vue.createApp({
+        data() {
+            return {
+                price: 0,
+                priceInTax: 0,
+                priceChinaRMB: 0
+            }
+        },
+        watch: {
+            price: function(newVal, oldVal){
+                console.log(newVal, oldVal);
+                this.priceInTax = Math.round(this.price * 1.08);
+                this.priceChinaRMB = Math.round(this.priceInTax / 16.75);
+            },
+        },
+        methods: {
+            btnClick: function(newPrice){
+                console.log("aaa")
+                this.price += newPrice;
+            },
+        },
+    }).mount('#myApp');
+
+    myApp.price = 29980;
+</script>
+</body>
+
+</html>
