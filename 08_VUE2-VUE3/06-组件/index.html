@@ -15,11 +15,13 @@
   </ol>
 </div>
 <script>
+  
 /* 组件定义：game-item */
 Vue.component('game-item', {
   props: ['game'],
   template: '<li>{{ game.title }}</li>'
 });
+
 /* Vue对象实例化 */
 var myApp = new Vue({
   el: '#myApp',
