@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取dom元素</title>
+</head>
+<body>
+    <h1 id="title">hello world</h1>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <script>
+        //getElementById返回值是一个dom节点
+        let h1 = document.getElementById("title");
+        h1.innerHTML = "你好世界";
+        console.log(h1.innerHTML);
+        //getElementsByClassName返回值是一个dom节点的集合。
+        let btns = document.getElementsByClassName("btn");
+        for(let i in btns){
+            btns[i].innerHTML = "test";
+        }
+
+        let h1 = document.querySelector("#title");
+        h1.innerHTML = "你好世界";
+
+        let btns2 = document.querySelectorAll(".btn");
+        for(let i in btns2){
+            btns2[i].innerHTML = "test";
+        }
+    </script>
+</body>
+</html>

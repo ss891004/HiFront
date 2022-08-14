@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this关键字</title>
+</head>
+
+<body>
+<h1>
+    1、this不能在类定义的外部使用，只能在类定义的内部使用。<br>
+    2、哪个对象调用this所在的函数，那么this代表的就是哪个对象实例。
+</h1>
+
+
+    <script type="text/javascript">
+        function Person() {
+            /*使用var 属性名定义的属性是类的私有属性，外界无法访问，要想被外界访问，就要使用公共方法*/
+            var QQ = "123456";
+            var Email = "123456@qq.com";
+
+            /*定义Person类的私有方法*/
+            function Show2() {//这是Person类的一个私有方法，只能在Person类内部使用
+
+            }
+
+            /*使用this.属性名定义的属性就是类的公共属性，是可以被外界访问的*/
+            this.Name = "hi this ";
+            this.Age = 24;
+
+            /*定义Person类的公共方法，凡是定义类的公共属性和公共方法都要使用this*/
+            this.Show = function () {
+                //定义Person类的公共方法(特权方法)
+                alert("QQ=" + QQ + "\tEmail=" + Email);
+            }
+        }
+
+        // 实例化一个对象
+        var p1 = new Person();
+        alert("私有属性p1.QQ=" + p1.QQ + "\t" + "p1.Email=" + p1.Email);
+        alert("公共属性p1.Name=" + p1.Name + "\t" + "p1.Age=" + p1.Age);
+        p1.Show();
+        //p1.Show2();//这里会报错，无法调用Person类的私有方法，
+
+        /*
+        Window 对象描述
+        Window 对象表示一个浏览器窗口或一个框架。在客户端 JavaScript 中，Window 对象是全局对象，所有的表达式都在当前的环境中计算。
+        也就是说，要引用当前窗口根本不需要特殊的语法，可以把那个窗口的属性作为全局变量来使用。例如，可以只写 document，而不必写 window.document。
+    
+        同样，可以把当前窗口对象的方法当作函数来使用，如只写 alert()，而不必写 Window.alert()。
+        */
+        function Test() {
+            alert(this.v);
+        }
+        v = 90;
+
+        Test();
+        window.Test();//记住一句话：哪个对象调用this所在的函数，那么this代表的就是哪个对象实例，这里是window对象调用Test()方法，因此此时this指的就是window对象
+
+        function Test2() {
+            this.fnTest = function () {
+                alert(this.v2);
+            }
+        }
+
+        var t = new Test2();
+        t.v2 = "记住一句话：哪个对象调用this所在的函数，那么this代表的就是哪个对象实例";
+        t.fnTest();//这里是t对象调用Test()方法，因此此时this指的就是t对象
+    </script>
+</body>
+
+</html>

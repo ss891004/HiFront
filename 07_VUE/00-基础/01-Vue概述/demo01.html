@@ -13,7 +13,6 @@
         {{message}}
     </div>
 
-
     <script src="js/vue.js"></script>
     <script>
         // Vue构造函数可以创建Vue的实例
@@ -29,6 +28,8 @@
         });
         //挂载Vue应用
         vue.$mount("#app");
+
+        Vue.config.productionTip = false
     </script>
 </body>
 </html>

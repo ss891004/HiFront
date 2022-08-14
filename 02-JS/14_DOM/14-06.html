@@ -49,7 +49,6 @@
         let btnList = document.querySelectorAll(".number-list button");
         for(let i in btnList){
             btnList[i].onclick = function(){
-                // console.log(i);
                 imagesContainer.style.transform = `translate(${-i * 640}px)`
             }
         }

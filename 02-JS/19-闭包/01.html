@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f1() {
+            var n = 999;//f1函数内部的局部变量n
+            //在f1函数内部定义一个f2函数
+            function f2() {
+                //在f2函数内部是可以访问局部变量n的
+                alert(n); // 999
+            }
+        }
+
+        /**　在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1 就是不可见的。
+         * 这就是Javascript语言特有的"链式作用域"结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。
+         * 既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！或许有人会有疑问，f2是一个函数啊，
+         * 怎么能够作为f1函数的返回值返回呢，其实是可以的，JavaScript中的函数名本身就是变量，所以函数也可以当作普通变量来使用。
+         * 也就是说，不仅可以像传递参数一样把一个函数传递给另一个函数，而且可以将一个函数作为另一个函数的返回值返回。
+         */
+
+
+        function f3() {
+            var n = 999;//局部变量n
+            //在f1函数内部声明的f2函数
+            function f4() {
+                alert(n);
+            }
+
+            return f4;//将f2函数作为f1函数的返回值
+        }
+        var result = f3();//f1调用完后的返回值是一个f2函数，此时result就是f2函数
+        result(); // 999，调用f2函数
+
+        // 我的理解是，闭包就是能够读取其他函数内部变量的函数。由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成"定义在一个函数内部的函数"。
+        // 所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。
+
+    </script>
+
+</body>
+
+</html>
