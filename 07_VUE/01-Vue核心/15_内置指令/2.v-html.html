@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>v-html指令</title>
-		<!-- 引入Vue -->
 		<script type="text/javascript" src="../js/vue.js"></script>
 	</head>
 	<body>
@@ -17,7 +16,6 @@
 									(1).在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
 									(2).一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！
 		-->
-		<!-- 准备好一个容器-->
 		<div id="root">
 			<div>你好，{{name}}</div>
 			<div v-html="str"></div>
@@ -26,7 +24,7 @@
 	</body>
 
 	<script type="text/javascript">
-		Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+		Vue.config.productionTip = false
 
 		new Vue({
 			el:'#root',

@@ -61,9 +61,7 @@
 				},
 				computed:{
 					filPerons(){
-						return this.persons.filter((p)=>{
-							return p.name.indexOf(this.keyWord) !== -1
-						})
+						return this.persons.filter((p)=>{ return p.name.indexOf(this.keyWord) !== -1 })
 					}
 				}
 			}) 

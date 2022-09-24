@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>引出生命周期</title>
-		<!-- 引入Vue -->
 		<script type="text/javascript" src="../js/vue.js"></script>
 	</head>
 	<body>
@@ -17,7 +16,6 @@
 						2.销毁后自定义事件会失效，但原生DOM事件依然有效。
 						3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
 		-->
-		<!-- 准备好一个容器-->
 		<div id="root">
 			<h2 :style="{opacity}">欢迎学习Vue</h2>
 			<button @click="opacity = 1">透明度设置为1</button>

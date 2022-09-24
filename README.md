@@ -32,3 +32,6 @@
 - git checkout dev
 - git merge xxx
 - git branch -d xxx 
+
+
+## cookie eidter 插件
