@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div class="todo-container">
-      <!-- 1. 设置一个自定义事件 -->
+      <div>对todo中的某一项，增加更新按钮-并适用nexttick</div>
       <Header @H_add="addTodo"></Header>
       <Todos :todoX="todos"></Todos>
       <Footer
