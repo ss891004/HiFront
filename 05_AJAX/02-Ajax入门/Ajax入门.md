@@ -129,9 +129,5 @@ document.querySelector("button").onclick = async function () {
 
 使用async函数才是处理异步问题的终极解决方案，所以在后续的开发中，尽量使async函数来处理异步问题。
 
-### 四、课后练习
-
-独立完成封装XMLHttpRequest对象，并获取后台的字符串数据。
-
 
 
