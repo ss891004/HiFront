@@ -23,9 +23,11 @@
 
 
         //1. this 是静态的. this 始终指向函数声明时所在作用域下的 this 的值
+        
         function getName(){
             console.log(this.name);
         }
+
         let getName2 = () => {
             console.log(this.name);
         }
