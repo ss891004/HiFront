@@ -71,9 +71,6 @@
 + 基于 Web 的应用
 + 多客户端的通信，如即时通信
 
-### 安装nodejs
-+ node -v
-
 
 ### commonJS规范
 
@@ -151,33 +148,6 @@ module.exports = {};
 NPM(Node Package Manager)
 + CommonJS 包规范是理论， NPM 是其中一种实践。
 + 对于 Node 而言， NPM 帮助其完成了第三方模块的发布、安装和依赖等。借助 NPMNode 与第三方模块之间形成了很好的一个
-
-### NPM命令
-+ npm v 
-    + 查看版本
-+ npm search 包名
-    + 搜索模块包
-+ npm install 包名
-    + 在当前目录安装 包
-+ pm install 包名 g
-    + 全局模式安装 包
-+ npm remove 包名
-    + 删除一个 模块
-+ npm install 文件路径
-    + 从本地安装
-+ npm install 包名 registry= 地址
-    + 从镜像源安装
-+ npm config set registry 地址
-    + 设置镜像源
-
-
-
-
-
-
-
-
-
 
 
 
@@ -294,6 +264,70 @@ NPM(Node Package Manager)
 		  // 使用cnpm安装包
 		  cnpm install express
     ```
+
+
+### NPM
+
+#### npm init 创建模块
+
++ npm init 
+
+
+#### npm set 设置环境变量
++ npm config set registry 地址
+    + 设置镜像源
+
+#### npm search 搜索模块
+
+#### npm list 查看模块
++ 当前项目安装的所有模块
+  + npm list
++ 列出全局安装的模块 带上[--depth 0] 不深入到包的支点 更简洁
+  + npm list -g --depth 0
+
+#### npm install 安装模块
+
+```
+# 读取package.json里面的配置单安装  
+$ npm install 
+//可简写成 npm i
+
+# 默认安装指定模块的最新(@latest)版本
+$ npm install [<@scope>/]<name> 
+//eg:npm install gulp
+
+# 安装指定模块的指定版本
+$ npm install [<@scope>/]<name>@<version>
+//eg: npm install gulp@3.9.1
+
+# 安装指定指定版本范围内的模块
+$ npm install [<@scope>/]<name>@<version range>
+//eg: npm install vue@">=1.0.28 < 2.0.0"
+
+# 安装指定模块的指定标签 默认值为(@latest)
+$ npm install [<@scope>/]<name>@<tag>
+//eg:npm install sax@0.1.1
+
+# 通过Github代码库地址安装
+$ npm install <tarball url>
+//eg:npm install git://github.com/package/path.git
+```
+
+#### npm uninstall 卸载模块
+
+#### npm update 更新模块
+
+#### npm link 引用模块
+
+#### npm run 执行脚本
++ package.json的scripts字段，可以用于指定脚本命令，供npm直接调用。npm run会创建一个Shell，执行指定的命令。
+
+#### npm publish 发布模块
+
+
+
+
+
 
 
 ## 模块,包 commonjs
