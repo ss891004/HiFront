@@ -35,3 +35,20 @@
 
 
 ## cookie eidter 插件
+
+
+## 问题
++ 0308010C:digital envelope routines::unsupported
+    + 因为 node.js V17版本中最近发布的OpenSSL3.0, 而OpenSSL3.0对允许算法和密钥大小增加了严格的限制，可能会对生态系统造成一些影响.
+    + export NODE_OPTIONS=--openssl-legacy-provider    （linux）
+    + set NODE_OPTIONS=--openssl-legacy-provider    (window)
+
+
++ package.json
+
+scripts": {
+   "serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+   "build": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build"
+},
+
+
