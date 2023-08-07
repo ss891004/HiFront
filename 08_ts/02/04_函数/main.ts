@@ -15,4 +15,4 @@
 // import './03_剩余参数'
  import './04_函数重载'
 
-document.write('哈哈,我又变帅了!!!')
+console.log('哈哈,我又变帅了!!!')
