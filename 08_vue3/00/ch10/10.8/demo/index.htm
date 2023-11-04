@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      What fruits do you like to eat?<br>
+      <el-checkbox v-model="checked1" label="apple">red apple</el-checkbox>
+      <el-checkbox v-model="checked2" label="watermelon"></el-checkbox><br>
+      <el-checkbox disabled v-model="chk1" label="dis1">op1</el-checkbox>
+      <el-checkbox :disabled=true v-model="chk1" label="dis2">op2</el-checkbox>
+      <el-checkbox :disabled="bDis" v-model="chk1" label="dis3">op3</el-checkbox><br>
+      <el-checkbox v-model="chk4" label="r4" border @change="mych">op4</el-checkbox>
+    </div>
+    <script>
+      const app = Vue.createApp({
+            data() 
+            {
+              return {
+              checked1: true,
+              checked2: false,
+              chk1:false,
+              bDis:true,
+              chk4:true
+              }
+           },
+          methods:{
+            mych(val)
+            {
+              alert(val);
+            }
+          }
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+  </body>
+</html>

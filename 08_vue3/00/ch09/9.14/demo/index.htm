@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+      setup() {
+        const mytext = Vue.ref('')
+        const list = Vue.ref([])
+        const caschList = []
+        Vue.watch(mytext, () => {
+          console.log(mytext.value)
+          list.value = caschList.value.filter(item => item.includes(mytext.value))
+        })
+        Vue.onMounted(() => {
+        caschList.value = [ 
+            "C++",
+            "Vue.js",
+            "TypeScript",
+            "Java",
+            "Visual C++",
+            "Delphi"
+        ];
+ 
+        })
+        return {
+          mytext,
+          list
+        }
+  
+    },//setup
+    template: `
+    Input key words：
+  <input type="text" v-model="mytext" /><p></p>
+  result：
+  <ul>
+    <li v-for="(item, index) in list" :key="index">
+      {{item}}
+    </li>
+  </ul>
+    `
+    });
+
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="d:/vue.js"></script>
+    <script src="d:/vue-router.global.js"></script>
+    <div id="box">
+    <p>
+        
+  
+        --------<router-link to="/"> Home</router-link>--------
+        <router-link to="/user">User Center</router-link>--------
+        <hr />
+
+    </p>
+ 
+    <router-view></router-view>
+    </div>
+	<script>
+
+
+ 
+    const User = {
+    template: `
+        <div class="user">
+        <h2>User Center</h2>
+
+        <div class="menu">
+        <ul>
+        <li><router-link to="/user/profile">profile</router-link></li>
+        <li><router-link to="/user/posts">UserPosts</router-link></li>
+        </ul>
+        </div>
+        <div class="content">
+        <router-view></router-view>
+        </div>
+
+        </div>
+    `
+    }
+    var UserProfile = {
+            template:`
+            <div >
+               my profile:.....
+            </div>
+            `,     
+        }
+    var UserPosts = {
+        template:`
+        <div >
+            my posts:.....
+        </div>
+        `,     
+    }
+    const Home = { template: '<div>Home</div>' }
+
+ 
+    routes = [
+    { path: '/', component: Home },   
+    {   
+        path: '/user', 
+        component: User,
+        children: [
+        {
+        
+          path: 'profile',
+          component: UserProfile
+        },
+        {
+  
+          path: 'posts',
+          component: UserPosts
+        },
+       
+      ]//children
+    } 
+  ]
+
+
+ 
+    const router = VueRouter.createRouter({
+ 
+    history: VueRouter.createWebHashHistory(),
+    routes,  
+    })
+
+ 
+    const app = Vue.createApp({})
+ 
+    app.use(router)
+    app.mount('#box')
+ 
+	</script>
+</body>
+</html>

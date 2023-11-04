@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="d:/vue.js"></script>
+	<script src="d:/vuex.global.js"></script>
+</head>
+<body>
+	<div id="box">
+		<mycompoent1></mycompoent1>
+		<mycompoent2></mycompoent2>	 
+	  </div>
+  <script>
+ 
+    //组件1
+    const myCompConfig1 = {
+    template: `
+	<div>
+        <h3>我是组件1</h3>
+        <span>store.state.count</span>
+        <button @click="add">组件1-自增</button>
+        {{store.state.count}}
+    </div>
+	`,
+    data(){
+		return {
+                title: '组件1-title'
+            }
+    },
+	setup:function(){
+            const store = new Vuex.useStore();
+            return {
+                store
+            }
+        },
+        methods:{
+            add:function () {
+                this.store.state.count++;
+            }
+        }
+    };
+
+	//组件2
+    const myCompConfig2 = {
+    template: `
+	<div>
+        <h3>我是组件2</h3>
+        <span>store.state.count</span>
+        <button @click="add">组件2-自增</button>
+        {{store.state.count}}
+    </div>
+	`,
+    data(){
+		return {
+                title: '组件2-title'
+            }
+    },
+	setup:function(){
+            const store = new Vuex.useStore();
+            return {
+                store
+            }
+        },
+        methods:{
+            add:function () {
+                this.store.state.count++;
+            }
+        }
+    };
+	// 创建一个新的 store 实例
+	const store = Vuex.createStore({
+		state(){
+			return {
+				count:1
+			}
+		}
+	})
+ 
+ 	//定义根组件的配置选项
+	 const RootComponentConfig  = {
+		components:{    
+			mycompoent1:myCompConfig1,
+			mycompoent2:myCompConfig2
+		}
+	}
+   const app = Vue.createApp(RootComponentConfig)   //创建应用（上下文）实例
+   app.use(store)
+   const rc = app.mount("#box") //应用实例挂载，注意这里要写在最后，不然组件无法生效
+  </script>
+</body>
+</html>
+
+ 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="d:/vue.js"></script>
+    <script src="d:/vue-router.global.js"></script>
+    <div id="box">
+    <p>
+        <router-link to="/">Home</router-link><br>    
+        <router-link to="/pencil?id=1">Use pencil</router-link><br>    
+        <router-link :to="{ name: 'pencil_detail'}">Use pencil</router-link><br> 
+        <router-link :to="{ name: 'pen_detail',params:{id:100}}">Use pen</router-link><br>
+        <router-link :to="{ name: 'ballpen_detail',params:{color:'red'}}">Use red ballpen</router-link><br>
+        <router-link to="/ballpen/blue">Use blue ballpen</router-link><br>   
+        <router-link to="/brush/black/10">Use 10cm black brush</router-link><br>   
+        <router-link :to="{ name: 'brush_detail',params:{color:'green',len:15}}">Use 15cm green brush</router-link><br>
+    </p>
+    <router-view></router-view>
+    </div>
+	<script>
+    const Home = { template: '<div>Home</div>' }
+    var Pen = {
+            template:`
+            <div >
+                use pen {{ this.$route.params.id }}
+            </div>
+            `,     
+        }
+    var Pencil = {
+        template:`
+        <div >
+            use pencil: {{ this.$route.query.id }}
+        </div>
+        `,     
+    }
+    var Ballpen = {
+        template:`
+        <div >
+            use ballpen: {{ this.$route.params.color}}
+        </div>
+        `,     
+    }
+    var Brush = {
+        template:`
+        <div >
+            use brush: {{ this.$route.params.color}}, {{ this.$route.params.len}}cm
+            <p>{{this.$route.name}}</p>
+            <p>{{this.$route.path}}</p>
+        </div>
+        `,     
+    }
+    const routes = [
+    { path: '/', redirect:{name:'pencil_detail'} },  
+    { path: '/pencil',name:'pencil_detail', component: Pencil },
+    { path: '/pen/:id', name:'pen_detail',component: Pen }, 
+    { path: '/ballpen/:color',name:'ballpen_detail', component:Ballpen},
+    { path: '/brush/:color/:len/',name:'brush_detail', component:Brush},
+    ]
+    const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes, 
+    })
+
+ 
+    const app = Vue.createApp({})
+    app.use(router)
+    app.mount('#box')
+ 
+	</script>
+</body>
+</html>

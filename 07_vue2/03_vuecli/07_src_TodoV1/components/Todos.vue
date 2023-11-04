@@ -6,7 +6,6 @@
 			:todo="todoObj" 
       :checkTodo="checkTodoX"
 			:deleteTodo="deleteTodoX"
-
 		/>
 	</ul>
 

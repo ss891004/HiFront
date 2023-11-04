@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="d:/vue.js"></script>
+    </head>
+
+    <style>
+      *{margin:0;padding:0;}
+      ul{
+        width: 200px;
+        border: 1px solid #000;
+        margin:100px auto;
+        list-style-type:none;
+      }
+      ul li{
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #000;
+        background-color: #ccc;
+        cursor:pointer;
+      }
+    </style>
+
+
+    <body>
+        <!--View-->
+        <div id="box">
+          <li v-on:click="clickme">click event</li>
+          <li @dblclick="dblclickme">double click event</li>
+          <li v-on:mouseenter="enterme()">mouse in event</li>
+          <li @mouseleave="leaveme('parameter')">mouse leave event</li>  
+        </div>    
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{}
+        },
+        methods: {
+            clickme(){
+            console.log('click event comes...');
+          },
+          dblclickme(){
+            console.log('double click event comes...');
+          },
+          enterme(){
+            console.log('mouse in event comes...');
+          },
+          leaveme(p){
+            console.log('mouse leave event...'+ p);
+          }
+				}
+      }
+    
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

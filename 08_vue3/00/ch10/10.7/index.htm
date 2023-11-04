@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      Today is:
+      <el-radio-group v-model="radio2">
+        <el-radio-button label="Monday"></el-radio-button>
+        <el-radio-button label="Tuesday">Tue</el-radio-button>
+      </el-radio-group>
+      <el-radio-group v-model="radio4" disabled >
+        <el-radio-button label="Wednesday"></el-radio-button>
+        <el-radio-button label="Thursday">Thur</el-radio-button>
+      </el-radio-group>
+    </div>
+    <script>
+      const app = Vue.createApp({
+            data() {
+          return {
+            radio2:"Monday"
+          }
+        }
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+  </body>
+</html>

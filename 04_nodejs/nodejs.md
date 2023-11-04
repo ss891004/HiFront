@@ -256,14 +256,16 @@ NPM(Node Package Manager)
 	  npm info express
 	```
 
-* cnpm 使用
-    ```
-    	 // 安装cnpm
-		  npm install -g cnpm --registry=https://registry.npm.taobao.org
 
-		  // 使用cnpm安装包
-		  cnpm install express
-    ```
+
+### NVM  - Node Version Manager
+
+#### Windows平台
++ 多版本的nodejs的管理工具
++ https://github.com/coreybutler/nvm-windows/releases
+
+#### MAC平台
++ https://github.com/nvm-sh/nvm
 
 
 ### NPM
@@ -272,10 +274,24 @@ NPM(Node Package Manager)
 
 + npm init 
 
+#### npm config 环境变量
 
-#### npm set 设置环境变量
-+ npm config set registry 地址
-    + 设置镜像源
+```text
+npm config set <key> <value> [-g|--global]
+npm config get <key>
+npm config delete <key>
+npm config list [-l] [--json]
+npm config edit
+npm get <key>
+npm set <key> <value> [-g|--global]
+
+
+npm config get prefix      存储路径
+npm config get registry    配置npm源
+
+
+```
+
 
 #### npm search 搜索模块
 
@@ -323,10 +339,6 @@ $ npm install <tarball url>
 + package.json的scripts字段，可以用于指定脚本命令，供npm直接调用。npm run会创建一个Shell，执行指定的命令。
 
 #### npm publish 发布模块
-
-
-
-
 
 
 

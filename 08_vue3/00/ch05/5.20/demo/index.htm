@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="d:/vue.js"></script>
+	<style>
+		.redtt {color: red;}
+		.big { font-size: 50px;}
+	  </style>	
+</head>
+<body>
+  <div id="box">
+	<h2 class="redtt">{{message}}</h2>
+	<h6 v-bind:class="{redtt: isRed, big: isBig}">{{message}}</h6>
+	<button v-on:click="btnClick">Change Color and size</button> 
+  
+</div> 
+  <script>
+       const user = {
+        data(){         
+          return{
+			message:'Hello',
+            isRed:false,
+            isBig:false
+
+          }
+		},
+		methods:{
+            btnClick(){
+              this.isRed = !this.isRed
+			  this.isBig = !this.isBig
+            }
+		}
+    }
+  const app = Vue.createApp(user);     
+  const rc = app.mount("#box");  
+  </script>
+</body>
+</html>
+
+   
+

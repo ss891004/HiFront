@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <componentb title="hi,boy">  </componentb>
+ </div>
+
+	<script>
+ const componentB = {
+    props: {
+      title: {
+        type: String,
+        required: true
+      }
+    },
+
+    
+    setup() {
+    let name = "Jack";
+    let age = 18;
+
+ 
+    function showName() {
+      alert(`name:${name} \nage:${age}`)
+    }
+
+    return {
+      name,
+      age,
+      showName
+    }
+  },
+  
+    template: `<div>
+    {{title}}<br>
+    {{name}},{{age}}
+    <button @click="showName">show name and age</button>  
+    </div>
+    `
+  }
+
+const root = {
+    components:{     
+			componentb:componentB  
+		},
+    methods: {
+      onUpdate(para) {
+        console.log(para);  
+      }
+    }
+  }
+  const app = Vue.createApp(root)
+  app.mount('#box')
+	</script>
+</body>
+</html>

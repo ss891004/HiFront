@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+  <script src="d:/dist/axios.js"></script>
+
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+      setup() {
+       
+ 
+      const username = Vue.reactive( {msg: 'hello'})
+      orgObj={
+        name: '',
+        age: '',
+        height:''
+        }
+    const obj = Vue.reactive(orgObj)  //将数据对象响应式
+    const handleClick = () => {
+      const url = 'http://localhost:3000/users/getUserInfo?id=1'
+        this.axios.get(url).then(function(response) {
+          this.username=response.data.data.name;
+          obj.name=response.data.data.name;
+          obj.age = response.data.data.age;
+          obj.height = response.data.data.height;
+          console.log(obj)    
+          }
+      )
+    }
+    return {
+      handleClick,
+      obj,
+    }
+    },//setup
+    template: `
+    <button @click="handleClick">Visit server</button>
+   <table border="1" width="500" align="center">
+    <caption><h2>Information</h2></caption>
+    <tr align="center">
+      <td>name</td>
+      <td>age</td>
+      <td>height</td>
+    </tr>
+    <tr align="center">
+      <td>{{obj.name}}</td>
+      <td>{{obj.age}}</td>
+      <td>{{obj.height}}</td>
+    </tr>
+
+  </table>
+    `
+    });
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

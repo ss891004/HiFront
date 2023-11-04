@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <el-switch v-model="value1" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+      <el-switch v-model="value2" disabled> </el-switch>
+      <el-switch v-model="value3" loading> </el-switch><br>
+      <el-switch v-model="value4" active-text="Monthly payment" inactive-text=" Annual payment "></el-switch>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+            data() {
+          return {
+            value1: true,
+            value2:false,
+            value3:true,
+            value4:false
+          }
+        },//data
+        methods: {
+          handleChange(val) {
+			        alert(val);  
+      },
+    },
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

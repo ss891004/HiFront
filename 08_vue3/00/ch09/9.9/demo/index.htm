@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+        setup() {
+        orgObj={
+        msg: 'hello',
+        info: 'hi'
+        }
+    const obj = Vue.reactive(orgObj)
+    const newMsg = Vue.toRef(obj, 'msg')
+    const hClick = () => {
+      newMsg.value = 'world'
+     console.log(orgObj)
+     console.log(obj)
+    }
+    return { newMsg, hClick }
+  },
+    template: `
+        <div>
+        {{ newMsg}}
+        <button @click="hClick">change</button>
+        </div>
+        `
+    });
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

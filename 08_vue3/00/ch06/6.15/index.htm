@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="d:/vue.js"></script>
+</head>
+<body>
+  <div id="box">
+    <component1 :props1=100 :props2=59 :props3=false props4="abc" :props5="{name:'Tom',age:12}" ></component1>      
+    <component1 :props1=100 props2="hello" :props3=true :props6=15></component1>  
+  </div>
+  <script> 
+   const myCompConfig = {
+    template: `<h3>{{props1}},{{props2}},{{props3}},{{props4}},{{props5}},{{props6}}</h3>       
+    `,    
+    props:{
+        //type的值可以是Number String Boolean Object Array Function   
+        //名字要注意，如果是驼峰命名,比如propsA,则在dom中要短线分割，即props-a！
+        //总之，js中用驼峰式命名，在html中替换成短横线分隔式命名。
+        //参数类型必须是Number类型
+        props1: Number,   
+  
+        // 参数类型必须是Number或String类型
+        props2: [Number, String],
+
+         // 参数必传
+         props3: {
+          type: Boolean,
+          required: true,
+        },
+
+        // 设置参数默认值
+        // 第一种情况 参数类型是基本类型
+        props4: {
+          type: String,
+          default: "111",
+        },
+
+        // 第二种情况 参数类型是引用类型
+        // 参数类型是数组或者对象的时候，需要使用工厂函数的形式返回默认值
+        props5: {
+              type:Object,
+               default: function () {
+                 return {name:'Jack',age:11} }
+              //default: () => ( {name:'Jack',age:11})  //或写成箭头函数
+        },
+          // 自定义校验函数 可过滤传入的值
+          props6: {
+          type: Number,
+          validator: function (val) {
+            return val > 10;
+          }
+        }
+        }
+    }
+	const RootComponentConfig  = {
+	data(){         
+			return{
+			msg:'java',  
+			}
+		},
+	}
+   const app = Vue.createApp(RootComponentConfig)    
+   app.component("component1", myCompConfig);
+   const rc = app.mount("#box")  
+  </script>
+</body>
+</html>
+
+ 

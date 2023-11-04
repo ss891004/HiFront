@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+    
+  </head>
+
+ 
+  <body>
+    <div id="box">
+      <div class="demo-type">
+        <div>
+          <el-avatar icon="el-icon-user-solid"></el-avatar>
+        </div>
+        <div>
+          <el-avatar
+            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" rel="external nofollow" 
+          ></el-avatar>
+        </div>
+        <div>
+          <el-avatar> user </el-avatar>
+        </div>
+      </div>
+
+      <div class="demo-fit">
+        <div class="block" v-for="fit in fits" :key="fit">
+          <span class="title">{{ fit }}</span>
+          <el-avatar shape="square" :size="100" :fit="fit" :src="url"></el-avatar>
+        </div>
+      </div>
+
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+      return {
+        fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
+        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      }
+    },
+       });
+    app.use(ElementPlus);
+    rc = app.mount("#box");
+    </script>
+  </body>
+</html>

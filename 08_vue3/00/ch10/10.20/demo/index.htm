@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+    <div class="block">
+      <span class="demonstration">默认</span>
+      <el-date-picker v-model="value1" type="date" placeholder="选择日期">
+      </el-date-picker>
+    </div>
+    <div class="block">
+      <span class="demonstration">带快捷选项</span>
+      <el-date-picker
+        v-model="value2"
+        type="date"
+        placeholder="选择日期"
+        :disabled-date="disabledDate"
+        :shortcuts="shortcuts"
+      >
+      </el-date-picker>
+    </div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+        disabledDate(time) {
+          return time.getTime() > Date.now()
+        },
+        shortcuts: [
+          {
+            text: 'Today',
+            value: new Date(),
+          },
+          {
+            text: 'Yesterday',
+            value: () => {
+              const date = new Date()
+              date.setTime(date.getTime() - 3600 * 1000 * 24)
+              return date
+            },
+          },
+          {
+            text: 'A week ago',
+            value: () => {
+              const date = new Date()
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
+              return date
+            },
+          },
+        ],
+        value1: '',
+        value2: '',
+      }
+    },
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

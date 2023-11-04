@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="d:/vue.js"></script>
+    <script src="d:/vue-router.global.js"></script>
+    <div id="box">
+    <p>
+ 
+        <router-link to="/">Go to Home</router-link><br>
+        <router-link to="/about">Go to About</router-link>
+    </p>
+ 
+    <router-view></router-view>
+    </div>
+
+	<script>
+ 
+    const Home = { template: '<div>Home</div>' }
+    const About = { template: '<div>About</div>' }
+
+ 
+    const routes = [
+    { path: '/', component: Home },
+    { path: '/about', component: About },
+    ]
+
+ 
+    const router = VueRouter.createRouter({
+ 
+    history: VueRouter.createWebHashHistory(),
+    routes,  
+    })
+
+ 
+    const app = Vue.createApp({})
+ 
+    app.use(router)
+
+    app.mount('#box')
+ 
+	</script>
+</body>
+</html>

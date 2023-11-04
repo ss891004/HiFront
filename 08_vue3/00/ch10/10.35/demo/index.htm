@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+    
+  </head>
+
+ 
+  <body>
+    <div id="box">
+      <el-button type="text" @click="open">显示消息提示框</el-button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+            methods:{
+              open() {
+        this.$alert('这是一段内容', '标题名称', {
+          confirmButtonText: '确定',
+          callback: (action) => {
+            this.$message({
+              type: 'info',
+              message: `user action: ${action}`,
+            })
+          },
+        })
+        },
+      }
+      });
+    app.use(ElementPlus);
+    rc = app.mount("#box");
+    </script>
+  </body>
+</html>

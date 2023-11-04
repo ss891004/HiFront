@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="d:/vue.js"></script>
+    <script src="d:/vue-router.global.js"></script>
+    <div id="box">
+    <p>
+        
+      
+        <router-link to="/pen?id=1">Use pen 1</router-link><br>
+        <router-link to="/pen?id=2">Use pen 2</router-link><br>
+      
+        <router-link to="/pencil?id=1">Use pencil 1</router-link><br>
+        <router-link to="/pencil?id=2">Use pencil 2</router-link><br>
+    </p>
+ 
+    <router-view></router-view>
+
+    </div>
+	<script>
+   
+    var Pen = {
+            template:`
+            <div >
+                use pen {{ this.$route.query.id }}
+            </div>
+            `,     
+        }
+    var Pencil = {
+        template:`
+        <div >
+            use pencil: {{ this.$route.query.id }}
+        </div>
+        `,     
+    }
+    const Home = { template: '<div>Home</div>' }
+
+  
+    const routes = [
+    { path: '/', component: Home },
+    { path: '/pen', component: Pen },
+    { path: '/pencil', component: Pencil },
+    ]
+ 
+    const router = VueRouter.createRouter({
+ 
+    history: VueRouter.createWebHashHistory(),
+    routes, 
+    })
+
+ 
+    const app = Vue.createApp({})
+ 
+    app.use(router)
+    app.mount('#box')
+ 
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <div class="block">
+        <el-slider v-model="value" range :marks="marks"> </el-slider>
+      </div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+      return {
+        value: [30, 60],
+        marks: {
+          0: '0°C',
+          8: '8°C',
+          37: '37°C',
+          50: {
+            style: {
+              color: '#1989FA',
+            },
+            label: '50%',
+          },
+        },
+      }
+    },
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

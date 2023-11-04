@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="box1">
+            <p>your name：{{name}}</p>
+            <p>your age：{{age}}</p>
+        </div>
+    </body>
+    <!-- <script src="d:/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+       const user = {
+        data(){         
+          return{
+            name:'Tom',
+            age:18
+          }
+    }
+}
+const app = Vue.createApp(user);     
+const rc = app.mount("#box1");  
+</script>
+</html>

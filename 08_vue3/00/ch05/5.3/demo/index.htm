@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <input type="checkbox" v-model="picked" id="html1" value="html"/>html<br>
+          <input type="checkbox" v-model="picked" id="css1" value="css">css<br>
+          <input type="checkbox" v-model="picked" id="js1" value="js">js<br>
+          <p>your choice:{{picked}}</p>  
+        </div>
+    </body>
+    <script src="d:/vue.js"></script>
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            picked:['css']
+			  	}
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

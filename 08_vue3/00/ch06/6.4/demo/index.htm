@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="d:/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<component1></component1>
+		<component2></component2>	  
+	  </div>
+  <script>
+  const app = Vue.createApp({})   //创建应用（上下文）实例
+   //注册组件1
+  app.component("component1",{
+    template:`
+    <h1> I am component1.</h1>
+	<component2></component2> `  //包含组件2的显示，component2显示在组件组件1的模板中
+  })
+	 //注册组件2
+  app.component("component2",{
+    template:` <h2>I am component2</h2> `   //注意不是单引号包围，是键盘上tab键上面的键
+  })
+  const rc = app.mount("#box") //应用实例挂载，注意这里要写在最后，不然组件无法生效
+  </script>
+</body>
+</html>
+
+ 

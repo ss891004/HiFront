@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+      setup() {
+    // 封装位置函数
+    function usePosition(state, x, y) 
+    {
+      const position = Vue.reactive({
+        x: 0,
+        y: 0
+      })
+
+      // 绑定鼠标移动事件
+      const onMouseMove = (event) => {
+        position.x = event.x
+        position.y = event.y
+      }//onMouseMove
+
+      window.addEventListener('mousemove', onMouseMove)
+      
+      // 返回出去
+      return Vue.toRefs(position)
+    } //usePosition
+
+    // 接受 x, y 位置
+    const {x, y} = usePosition()
+    return {x, y}
+  },//setup
+    template: `
+    <h2>
+    x: {{ x }}
+    y: {{ y }}
+  </h2>  `
+    });
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

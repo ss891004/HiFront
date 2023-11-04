@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <el-time-select
+      v-model="value1"
+      :picker-options="{
+        start: '08:30',
+        step: '00:15',
+        end: '18:30'
+      }"
+      placeholder="please select time">
+    </el-time-select>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+      return {
+        value1: ''
+      }
+    },
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

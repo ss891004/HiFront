@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <input type="text" v-model="myname">
+          <input type="text" v-model="family">
+          <br>
+          myname={{myname}},family={{family}},mynameFamily={{connectStr}}
+      </div>
+
+    </body>
+    <!-- <script src="d:/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            myname:'Tom',
+            family:'family'
+          }
+        },
+        computed: {                 // computed是表示计算属性的选项
+            connectStr() {
+              return this.myname+this.family   //拼接两个字符串
+            }
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");  
+</script>
+</html>

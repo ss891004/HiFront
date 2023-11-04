@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+    
+  </head>
+
+ 
+  <body>
+    <div id="box">
+      <div class="block">
+        <span class="demonstration">有默认值</span>
+        <el-color-picker v-model="color1"></el-color-picker>
+      </div>
+      <div class="block">
+        <span class="demonstration">无默认值</span>
+        <el-color-picker v-model="color2"></el-color-picker>
+      </div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+        color1: '#409EFF',
+        color2: null,
+      }
+    },
+    });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

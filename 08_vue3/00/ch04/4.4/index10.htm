@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>绑定数据</title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">{{name}}</div>          
+    </body>
+    <script src="d:/vue.js"></script>
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            name:'Tom',    
+          }
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");  
+</script>
+</html>

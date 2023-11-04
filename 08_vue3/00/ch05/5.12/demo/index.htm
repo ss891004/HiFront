@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="d:/vue.js"></script>
+        <style>
+          *{margin:0;padding:0}
+          table,td{
+            border:1px solid #cccccc;
+            border-collapse:collapse;
+          }
+          table{
+            width: 1090px;
+            margin:20px auto;
+          }
+          tr{
+            line-height: 30px;
+          }
+          td{
+            text-align: center;
+          }
+          button{
+            width: 40px;
+            height: 24px;
+            border: 1px solid orange;
+          }
+          fieldset{
+            width: 1040px;
+            margin:0 auto;
+            padding:25px;
+          }
+          fieldset p{
+            line-height: 30px;
+          }
+        </style>
+    </head>
+  
+    <body>
+        <!--View-->
+        <div id="box">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>book name</th>
+              <th>auther</th>
+              <th>price</th>
+              <th>action</th>
+            </tr>
+            <tr v-for="(book,index) in books">
+              <td>{{book.id}}</td>
+              <td>{{book.name}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.price}}</td>
+              <td>
+                <button @click="delBook(index)">del</button>
+              </td>
+            </tr>
+          </table>
+
+          <fieldset>
+            <legend>Add a new book</legend>
+            <p>book name：<input type="text" v-model="newBook.name"></p>
+            <p>author：<input type="text" v-model="newBook.author"></p>
+            <p>price：<input type="text" v-model="newBook.price"></p>
+            <p><button @click="addBook">Add</button></p>
+          </fieldset>
+      
+        </div>      
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){    
+          return{     
+        	books:[
+				{id:1, name:'VC++ programming', author:'Jack', price:'8.88'},
+				{id:2, name:'My dog and cat', author:'Peter', price:'8.80'},
+				{id:3, name:'Story of my mother', author:'Alice', price:'8.08'},
+			],
+      newBook:{
+				id:0,
+				name:'',
+				author:'',
+				price:''
+      }
+      }
+      },
+      
+    methods:{
+      delBook(idx){   // idx表示要删除项目的索引
+                var r = confirm("Are you sure you want to delete?");
+                if(r) this.books.splice(idx, 1);  //1表示删除数目是1
+			},
+			addBook(){
+				var maxId = 0;
+				for(var i=0; i<this.books.length; i++){
+					if(maxId<this.books[i].id){
+						maxId = this.books[i].id;
+					}
+				}
+				this.newBook.id = maxId+1;
+				// console.log(this.newBook);
+				// 
+				// 插入到books中
+				this.books.push(this.newBook);
+
+				//清空新书
+				this.newBook = {};
+			}
+    }
+    }
+    
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

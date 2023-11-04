@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js v-bind CSS</title>
+	<script src="d:/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+	    <input v-model="message">
+	</div>
+	<script>
+		const user = {
+        data(){         
+          return{
+			message:"hello "
+          }
+		},
+		watch:{  //普通的watch监听
+        message(newVal, oldVal){
+        console.log("newValue" + newVal + ";oldValue:" + oldVal);
+      }
+    }
+	}
+	const app = Vue.createApp(user);     
+  	const rc = app.mount("#box");  
+	</script>
+</body>
+</html>
+
+ 

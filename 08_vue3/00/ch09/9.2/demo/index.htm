@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <componentb title="hi,boy"></componentb>
+ </div>
+
+	<script>
+ const componentB = {
+    props: {
+      title: {
+        type: String,
+        required: true
+      }
+    },
+    setup(props) {
+      console.log(props);  
+      console.log(props.title);  
+    },
+    template: `
+      <div>{{title}}</div>
+    `
+  }
+
+const root = {
+    components:{     
+			componentb:componentB  
+		}
+  }
+  const app = Vue.createApp(root)
+  app.mount('#box')
+	</script>
+</body>
+</html>

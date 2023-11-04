@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+    
+  </head>
+
+ 
+  <body>
+    <div id="box">
+      <div class="block">
+        <span class="demonstration">默认不区分颜色</span>
+        <el-rate v-model="value1"></el-rate>
+      </div>
+      <div class="block">
+        <span class="demonstration">区分颜色</span>
+        <el-rate v-model="value2" :colors="colors"> </el-rate>
+      </div>
+
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+        value1: null,
+        value2: null,
+        colors: ['#99A9BF', '#F7BA2A', '#FF9900'],  
+      }
+    },
+    });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

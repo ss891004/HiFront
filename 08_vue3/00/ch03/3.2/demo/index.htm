@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My first vue3 program</title>
+<!-- <script src="d:/vue.js"></script> -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="hello">
+  {{ message }}
+</div>
+
+<script>
+const HelloVueApp = {
+  data() {
+    return {
+
+      message: 'Hello world from Vue3 !!'
+    }
+  }
+}
+
+const app = Vue.createApp(HelloVueApp);   
+const rootComponent = app.mount("#hello"); 
+console.log('hello~~~');
+
+</script>
+</body>
+</html>

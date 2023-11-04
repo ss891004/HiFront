@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      Today is:
+      <div>
+        <el-radio v-model="radio1" label="Mon">Monday</el-radio>
+        <el-radio v-model="radio1" :label=5>Tuesday</el-radio>
+      </div>
+      <div>
+        <el-radio v-model="radio2" label="Won">Wednesday</el-radio>
+        <el-radio v-model="radio2" label="Thu">Thursday</el-radio>
+      </div>
+      <el-radio disabled v-model="radio3" label="dis1">op1</el-radio>
+      <el-radio :disabled=true v-model="radio3" label="dis2">op2</el-radio>
+      <el-radio :disabled="bDis" v-model="radio3" label="dis3">op3</el-radio>
+      
+      <el-radio v-model="radio4" label="r4" border @change="mych">op4</el-radio>
+      <el-radio v-model="radio4" label="r5" border @change="mych">op5</el-radio>
+
+      <el-button  @click="onbtn">change radio</el-button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+            data() {
+          return {
+            radio1: "mm",
+            radio2:'Won',
+            radio3:'dis2',
+            bDis:true,   //如果设置为false，则可用
+            radio4:"r4"
+          }
+        },
+        methods:{
+          mych(val)
+          {
+           alert(val);
+          },
+          onbtn() {
+            if(this.radio4=="r4")
+			        this.radio4 = "r5";
+            else
+              this.radio4 = "r4";              
+        },
+
+        }
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="d:/vue.js"></script>
+    </head>
+  
+    <body>
+        <!--View-->
+        <div id="box">
+        	<li v-for="(singer,index) in singers">
+            {{singer.no}} {{singer.name}}  （index:{{index}}）
+          </li>
+       
+        </div>    
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            singers:[
+				{no:1, name:'Tom'},
+				{no:2, name:'Jack'},
+				{no:3, name:'Peter'},
+				{no:4, name:'Alice'}
+			  ]
+          }
+        }
+    }
+    
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

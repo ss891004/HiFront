@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>多少调用计算属性和方法</title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">{{fullName}}</div>
+
+    </body>
+    <script src="d:/vue.js"></script>
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            firstName: "Jack",
+            lastName: "Jobs"  
+          }
+        },
+        methods:{
+            show(){
+                    console.log("do method")  
+                }
+            },
+
+        computed: {                
+            fullName: {
+              get(){
+                console.log('---do computed get---')
+                return this.firstName + " " + this.lastName;
+              },
+              set(value) {
+                        console.log("computed set called.");
+                        var arr = value.split(" ");
+                        this.firstName = arr[0];
+                        this.lastName = arr[1];
+                    }
+            }
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+    rc.fullName='Steven Jobs';   
+  
+    rc.fullName;
+    rc.fullName;
+    rc.fullName;
+  
+    rc.show();
+    rc.show();
+    rc.show();
+
+</script>
+</html>

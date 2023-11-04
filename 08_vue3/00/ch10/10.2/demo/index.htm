@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+		<el-button  @click="onLogin">{{message}}</el-button>
+    </div>
+    <script>
+      const rootConfig = {
+        data() {
+          return {
+            message: "Hello Element Plus",
+          };
+        },
+		methods: {
+			onLogin() {
+			alert("login ok");
+      },
+    },
+      };
+      const app = Vue.createApp(rootConfig);
+      app.use(ElementPlus);
+      app.mount("#box");
+    </script>
+  </body>
+</html>

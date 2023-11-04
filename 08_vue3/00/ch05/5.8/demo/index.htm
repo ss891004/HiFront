@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="d:/vue.js"></script>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <div class="search-box">
+            请输入您的星座：
+            <input type="text" id="xingzuo" v-model="xingzuoming">
+            <input type="button" value="确定" @click="query">
+          </div>
+          <div class="xingzuo-detail" v-html="xingzuodetail"></div>
+        </div>
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            xingzuoming:'',
+		      	xingzuodetail:''
+
+			  	}
+        },
+        methods: {
+			query(){
+				switch(this.xingzuoming){
+					case '水瓶座':
+						this.xingzuodetail="<img src='images/12/shuiping.png'>";
+						break;
+					case '狮子座':
+						this.xingzuodetail="<img src='images/12/shizi.png'>";
+						break;
+					case '处女座':
+						this.xingzuodetail="<img src='images/12/chunv.png'>";
+						break;
+					case '天蝎座':
+						this.xingzuodetail="<img src='images/12/tianxie.png'>";
+						break;
+					case '白羊座':
+						this.xingzuodetail="<img src='images/12/baiyang.png'>";
+						break;
+					case '金牛座':
+						this.xingzuodetail="<img src='images/12/金牛.png'>";
+						break;
+					case '天秤座':
+						this.xingzuodetail="<img src='images/12/tiancheng.png'>";
+						break;
+					default:
+						this.xingzuodetail = '请输入正确的星座，例如：狮子座，天蝎座等';
+				}
+			}
+		}
+ }
+
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

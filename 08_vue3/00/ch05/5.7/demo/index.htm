@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="d:/vue.js"></script>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+        <button v-on:click="clickHandler">click</button>
+			  <button @mouseover='mouseoverHandler(123 ,$event)'>mouse move</button>
+			  <button @click="plus">increase</button>  <!--使用函数名-->
+			  <button @click="num--">reduce</button>  <!--直接写js片段-->
+			<h2>num = {{num}}</h2>
+        </div>
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            num:1
+			  	}
+        },
+        methods: {
+					clickHandler() {
+						alert("Hello!");
+					},
+					mouseoverHandler(num, event) {
+						console.log(num, event);
+						alert(num);
+					},
+					plus(){
+						this.num++;
+					}
+				}
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

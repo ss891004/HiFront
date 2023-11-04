@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="d:/vue.js"></script>
+    </head>
+  
+    <body>
+        <!--View-->
+        <div id="box">
+          <!--v-for循环普通数组-->
+          <p v-for="(item,i) in list">index：{{i}} ， item value：{{item}}</p>
+          <br/>
+          <!--v-for循环对象数组-->
+          <p v-for="(user,i) in listObj">id：{{user.id}}，name:{{user.name}}</p>
+          <br/>
+          <!--注意，在遍历对象的键值对的时候，除了有 val 和 key,在第三个位置还有一个索引-->
+          <p v-for="(val,key) in user">--object's key--{{key}}，value--{{val}}</p>
+          <br/>
+          <!-- in 后面我们放过数组、对象数组、对象，还可以放数字-->
+          <!-- 注意：如果使用v-for迭代数字的话，前面 count 的值从 1 开始-->
+          <p v-for="count in 3">No.{{count}} loop</p>
+        </div>    
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            list:['dog','cat','cow'],
+      listObj:[
+        {id:1, name:'Tom'},
+        {id:2, name:'Jack'},
+        {id:3, name:'Mike'},
+      ],
+      user:{
+        id:1,
+        name:'Tom',
+        gender:'man'
+      }
+          }
+        }
+    }
+    
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

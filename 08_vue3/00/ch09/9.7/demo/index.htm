@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+        setup(){
+    let obj = {name : 'Alice', age : 12};
+    let newName = Vue.ref(obj.name);
+    function hClick(){
+      newName.value = 'Tom';  //通过.value去赋值看
+      console.log(obj);
+      console.log(newName)
+    }
+    return {newName,obj,hClick}
+  },
+        template: `
+        <div>
+            {{ newName  }}<br>
+            {{ obj }}<br>
+            <button @click="hClick">change</button>
+        </div>
+        `
+    });
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

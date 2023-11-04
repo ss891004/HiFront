@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+      setup() {
+        const num = Vue.ref(0)
+        const num2 = Vue.ref(20)
+  
+        Vue.watch([num, num2], (v1, v2) => {
+    
+      console.log('v1', v1, 'v2', v2)
+     
+    })
+     
+      const butFn = () => {
+      num.value++
+      num2.value++
+    }
+     
+     return { butFn, num,num2 }
+    },//setup
+    template: `
+     <p>num: {{ num }},num2:{{num2}}</p>
+     <button @click="butFn">plus</button>
+    `
+    });
+
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <el-checkbox-group v-model="checkList" @change="mysel">
+        <el-checkbox label="复选框 A"></el-checkbox>
+        <el-checkbox label="复选框 B"></el-checkbox>
+        <el-checkbox label="复选框 C"></el-checkbox>
+        <el-checkbox label="禁用" disabled></el-checkbox>
+        <el-checkbox label="选中且禁用" disabled></el-checkbox>
+      </el-checkbox-group>
+    </div>
+    <script>
+      const app = Vue.createApp({
+            data() {
+          return {
+            checkList: ['选中且禁用', '复选框 A'],
+          }
+        },
+        methods:{
+          mysel(val)
+          {
+           alert(val);
+          }
+        }
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+    </script>
+  </body>
+</html>

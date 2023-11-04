@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+        setup() {
+            //  数据响应式：
+                let obj ='hello'// Vue.reactive({
+            //msg: 'hello'
+            // })
+            const hClick = () => {
+            obj= 'world'
+            console.log(obj)
+            }
+            return { obj, hClick }
+        },
+        template: `
+        <div>
+            {{ obj}}
+            <button @click="hClick">change</button>
+        </div>
+        `
+    });
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

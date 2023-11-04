@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <el-select v-model="myv" placeholder="please select:">
+        <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        >
+        </el-option>
+      </el-select>
+
+      <el-select v-model="myv2" multiple placeholder="select please:">
+        <el-option
+          v-for="item in cities"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        >
+        </el-option>
+      </el-select>
+
+      <el-select v-model="myv3" filterable placeholder="select">
+        <el-option
+          v-for="item in foods"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        >
+        </el-option>
+      </el-select>
+
+    </div>
+    <script>
+      const app = Vue.createApp({
+            data() {
+          return {
+            options: [
+          {
+            value: 'op1',
+            label: '12',
+          },
+          {
+            value: 'op2',
+            label: '13',
+          },
+          {
+            value: 'op3',
+            label: '11',
+          }
+          ],
+          cities: [
+          {
+            value: 'op1',
+            label: 'Shanghai',
+          },
+          {
+            value: 'op2',
+            label: 'New York',
+          },
+          {
+            value: 'op3',
+            label: 'Paris',
+          }
+        ],
+        foods: [
+          {
+            value: '选项1',
+            label: '馄饨',
+          },
+          {
+            value: '选项2',
+            label: '龙须面',
+          },
+          {
+            value: '选项3',
+            label: '北京烤鸭',
+          },
+        ],
+          myv: '',
+          myv2:'',
+          myv3:''
+          }
+        },//data
+        methods: {
+          handleChange(val) {
+			        alert(val);  
+      },
+    },
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+ 
+  </body>
+</html>

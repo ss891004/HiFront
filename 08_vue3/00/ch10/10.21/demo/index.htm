@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <div class="block">
+        <span class="demonstration">默认</span>
+        <el-date-picker v-model="value1" type="datetime" placeholder="选择日期时间">
+        </el-date-picker>
+      </div>
+      <div class="block">
+        <span class="demonstration">带快捷选项</span>
+        <el-date-picker
+          v-model="value2"
+          type="datetime"
+          placeholder="选择日期时间"
+          :shortcuts="shortcuts"
+        >
+        </el-date-picker>
+      </div>
+      <div class="block">
+        <span class="demonstration">设置默认时间</span>
+        <el-date-picker
+          v-model="value3"
+          type="datetime"
+          placeholder="选择日期时间"
+          :default-time="defaultTime"
+        >
+        </el-date-picker>
+      </div>
+      
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+        shortcuts: [
+          {
+            text: '今天',
+            value: new Date(),
+          },
+          {
+            text: '昨天',
+            value: () => {
+              const date = new Date()
+              date.setTime(date.getTime() - 3600 * 1000 * 24)
+              return date
+            },
+          },
+          {
+            text: '一周前',
+            value: () => {
+              const date = new Date()
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
+              return date
+            },
+          },
+        ],
+        value1: '',
+        value2: '',
+        value3: '',
+        defaultTime: new Date(2000, 1, 1, 12, 0, 0), // '12:00:00'
+      }
+    },
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+
+ 
+  </body>
+</html>

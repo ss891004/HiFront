@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .header {
+          border: 1px solid red;
+        }
+        .content{
+          display: flex;
+        }
+        .sidebar {
+          flex: 2;
+          border: 1px solid green;
+          height: 500px;
+        }
+        .mainbox{
+          flex: 8;
+          border: 1px solid blue;
+          height: 500px;
+        }
+      </style>
+ 
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="d:/vue.js"></script>
+    <script src="d:/vue-router.global.js"></script>
+    <div id="box">
+        <router-view></router-view>
+        <div class="content">
+          <router-view name="a"></router-view>
+          <router-view name="b"></router-view>
+        </div>
+    </div>
+	<script>
+    const Home = { template: '<div>Home</div>' }
+    var header = {
+            template:`
+            <h1 class="header">Header</h1>
+            `,     
+        }
+     var sidebar =   {
+      template: '<div class="sidebar">sidebar</div>'
+       } 
+
+    var mainbox  = {
+        template:`
+        <div class="mainbox">mainbox</div>
+        `,     
+    }
+    
+    const routes = [
+    {    
+         path: '/', components: {
+            default: header,
+            a: sidebar,
+            b: mainbox
+        }
+    }]
+
+    const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes, 
+    })
+
+ 
+    const app = Vue.createApp({})
+    app.use(router)
+    app.mount('#box')
+ 
+	</script>
+</body>
+</html>

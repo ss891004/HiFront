@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="d:/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<mycompoent1></mycompoent1><br>
+		<h2>{{msg}}</h2>
+	</div>
+	<script>
+
+	//定义局部组件的配置选项
+	const myCompConfig = {
+		data(){
+    return {num: 0}
+    },
+    template: `<button @click='num++'>你点击了{{num}}次；我记住了</button>,
+		num={{num}}`,
+    };
+
+	//定义根组件的配置选项
+	const RootComponentConfig  = {
+	data(){         
+			return{
+			msg:'hello'
+			}
+		},
+		components:{    //组件选项components
+			mycompoent1:myCompConfig    //mycompoent1是属性名，myCompConfig是属性值，也就是局部组件的选项对象
+		}
+	}
+	const app = Vue.createApp(RootComponentConfig); 
+  	const rc = app.mount("#box");  //把 app 中的根组件挂载到提供的 DOM 元素上，这样使用 Vue 创建的组件才会被渲染。
+  
+	</script>
+</body>
+</html>
+
+ 

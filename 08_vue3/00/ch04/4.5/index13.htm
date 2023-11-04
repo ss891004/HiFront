@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <p>Original message: "{{ myname }}"</p>
+          <p>Computed reversed message: "{{ reversedMessage }}"</p>
+      </div>
+
+    </body>
+    <!-- <script src="d:/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            myname:'Tom',    
+          }
+        },
+        computed: {                 // computed是表示计算属性的选项, 计算属性主要是分离逻辑
+            reversedMessage() {
+              console.log('aaaa')
+            return this.myname.split('').reverse().join('')     // `this` 指向 vm 实例
+            }
+        }
+    }
+
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");  
+</script>
+</html>

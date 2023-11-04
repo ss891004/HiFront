@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box">
+  <post-item></post-item>
+ </div>
+	<script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+      setup() {
+        let msg = Vue.ref('')
+        const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  
+        const timeShow = () =>{
+            let myTime= new Date()
+            msg.value = myTime.getFullYear() + '.'              
+            msg.value += toTwo(myTime.getMonth()+1) + '.'
+            msg.value += toTwo(myTime.getDate()) + ' '
+            msg.value += week[myTime.getDay()] 
+            msg.value += toTwo(myTime.getHours()) + ':'
+            msg.value += toTwo(myTime.getMinutes()) + ':'
+            msg.value += toTwo(myTime.getSeconds()) 
+        }
+
+        const toTwo = (x) => x>9?x:'0'+x
+        setInterval(timeShow,1000)
+        return {msg}
+    },//setup
+    template: `<h2>{{ msg }}</h2>`
+    });
+
+    const vm = app.mount('#box');
+	</script>
+</body>
+</html>

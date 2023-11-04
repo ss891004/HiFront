@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<script src="d:/vue.js"></script>
+    <script src="d:/vue-router.global.js"></script>
+    <div id="box">
+      <post-item></post-item>
+    </div>
+
+    <script src="router.js"></script>
+    <script>
+    const app = Vue.createApp({});
+    app.component('PostItem', {
+      setup() {
+      const usePen = (penNo) => {   
+          router.push('/pen/'+penNo)      
+    }
+    const usePencil = (flag) => {   
+      if(flag==1) router.push({path:'/pencil'})   
+      else if(flag==2)  router.push({path:'/pencil',query:{brand:'sky001'}}) 
+      else router.push({ name:'pencil_detail'})   
+    }
+
+    const useBallpen = (flag) => {   
+       if(flag==1)   router.push({ path:'/ballpen/red'})   
+       else router.push({ name:'ballpen_detail',params:{color:'red'}})   
+    }
+
+    const useBrush = () => {   
+        router.push({ name:'brush_detail',params:{color:'red',len:20}})   
+    }
+     
+     return { usePen,usePencil,useBallpen,useBrush }
+    },//setup
+    template: `
+     <button @click="usePen(1,100)">use pen</button>
+     <button @click="usePen(2,100)">use pen</button>
+     <button @click="usePencil(1)">use pencil</button><br>
+     <button @click="usePencil(2)">use pencil</button>
+     <button @click="usePencil(3)">use pencil</button>
+     <button @click="useBallpen(2)">use ballpen</button>
+     <button @click="useBrush">use brush</button>
+     <router-view></router-view>
+    `
+    });
+    app.use(router)
+    app.mount('#box')
+	</script>
+</body>
+</html>

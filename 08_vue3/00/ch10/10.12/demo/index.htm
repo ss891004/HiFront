@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+  </head>
+  <body>
+    <div id="box">
+      <el-input v-model="myinput" placeholder="input content"></el-input>
+      <el-input placeholder="input content" v-model="myinput" :disabled=true> </el-input>
+      <el-input placeholder="input password" v-model="myinput" show-password></el-input><br><br>
+      <el-input type="textarea" :rows=3   v-model="textarea">
+    </div>
+    <script>
+      const app = Vue.createApp({
+            data() {
+          return {
+            myinput:"",
+            textarea:""
+          }
+        }
+      });
+      app.use(ElementPlus);
+      rc = app.mount("#box");
+    </script>
+ 
+  </body>
+</html>

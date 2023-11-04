@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="d:/vue.js"></script>
+</head>
+<body>
+ <div id="box"></div>
+
+	<script>
+ 
+const component = {
+  template:'<div>hello</div>',
+  setup() {
+ 
+      console.log('----do setup----');
+      console.log(this);  
+    },
+  beforeCreate() {
+      console.log("----do beforeCreate ----");  
+      console.log(this);
+    },
+    created() {
+      console.log("----do Created ----"); 
+      console.log(this); 
+    }
+  }
+ 
+  const app = Vue.createApp(component)
+ 
+  app.mount('#box')
+	</script>
+</body>
+</html>

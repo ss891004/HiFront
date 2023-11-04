@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="d:/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="D:/mynpmsoft/node_modules/element-plus/dist/index.css">
+    <!-- import element-plus -->
+    <script src="D:/mynpmsoft/node_modules/element-plus/dist/index.full.js"></script>
+    <title>Element Plus demo</title>
+    
+
+  </head>
+
+ 
+  <body>
+    <div id="box">
+      <div>
+        <el-carousel trigger="click" height="164px" :interval="3000" arrow="always" style="width:500px">
+          <el-carousel-item v-for="item in imgList" :key="item.name">
+            <img :src="item.src" style="height:100%;width:100%;" alt="图片丢失了" :title="item.title" />
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+    return {
+      imgList: [
+        {
+          name: "a",
+          src:  "./assets/a.png",
+          title: "This is a.png."
+        },
+        {
+          name: "b",
+          src: "./assets/b.png",
+          title: "This is b.png."
+        },
+        {
+          name: "c",
+          src: "./assets/c.png",
+          title: "This is c.png."
+        }
+      ]
+    }
+  }
+       });
+    app.use(ElementPlus);
+    rc = app.mount("#box");
+    </script>
+  </body>
+</html>

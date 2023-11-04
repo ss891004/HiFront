@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移上提醒功能</title>
+	<style>
+		*{margin:0;padding:0}
+		fieldset{
+			width: 230px;
+			padding:30px;
+			margin:100px auto;
+		}
+		fieldset p{
+			line-height: 40px;
+		}
+		fieldset label{
+			font-size: 12px;
+			color:#bbb;
+			vertical-align:3px;
+		}
+		fieldset input[type="button"]{
+			padding-left:5px;
+			padding-right:5px;
+		}
+		fieldset span{
+			width:190px;
+			padding:5px;
+			position:absolute;
+			left:0px;
+			top:28px;
+			border: 1px solid #dfb86d;
+			background-color: #fffde4;
+			font-size: 12px;
+			line-height: 20px;
+			color:#dc9632;
+		}
+		#demo{
+			position:relative;
+		}
+
+    ul li{
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #000;
+        background-color: #ccc;
+        cursor:pointer;
+      }
+
+	</style>
+	<script src="d:/vue.js"></script>
+</head>
+<body>
+  <div id="box">
+	<fieldset>
+		<form action="">
+			<p>邮箱：<input type="text"></p>
+			<p>密码：<input type="password" name="" id=""></p>
+			<p id="demo" v-on:mouseenter="visible" @mouseleave="invisible"><input type="checkbox" id="miandenglu"><label for="miandenglu">十天内免登录</label>
+				<span v-show="seen==true">为了您的信息安全，请不要在网吧或者公用电脑上使用此功能！</span>
+			<p>
+			<input type="button" value="登 录">
+			<input type="button" value="去注册">
+			</p>
+		</form>
+	</fieldset>
+    </div> 
+ 
+  <script>
+       const user = {
+        data(){         
+          return{
+            seen:false
+          }
+        },
+          methods:{
+          	visible(){
+				    	this.seen = true;
+				},
+				invisible(){
+					this.seen = false;
+				}
+      }
+    }
+  const app = Vue.createApp(user);     
+  const rc = app.mount("#box");  
+  </script>
+</body>
+</html>
+
+   
+

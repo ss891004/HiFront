@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>计算属性和函数的区别</title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <input type="text" v-model="myname">
+          <input type="text" v-model="family">
+          <br>
+          <button @click="add">do</button>
+          <p>{{ connectStr }}</p> 
+      </div>
+    </body>
+    <script src="d:/vue.js"></script>
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            myname:'Tom',
+            family:'family'
+          }
+        },
+        methods:{
+            add(){
+                    this.connectStr;    
+                    console.log( "do methods") // 在VSC的“DEBUG CONSOLE”内显示   
+                }
+            },
+
+        computed: {                 // computed是表示计算属性的选项
+            connectStr() {
+              console.log('------do computed-----');
+              return this.myname+this.family   //拼接两个字符串
+            }
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");  
+</script>
+</html>

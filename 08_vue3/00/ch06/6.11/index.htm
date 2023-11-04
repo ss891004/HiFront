@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="d:/vue.js"></script>
+</head>
+<body>
+  <div id="box">
+    <h3>book infomation from father:</h3>
+    <fathercomponent></fathercomponent>  
+  </div>
+
+  <script>
+
+  const sonCompConfig = {
+      template: `<h1>{{bookName}}, {{price}}, {{author}}</h1>
+      son want to modify the price:
+      <input type="text" v-model="newPri" placeholder="Input:">
+      <br>new price:{{newPri}}`,
+      
+    
+      props:['bookName','price','author'] ,
+      data(){
+        return{
+          newPri:this.price
+        }
+      }
+    };
+
+ 
+
+	const fatherCompConfig  = {
+	data(){         
+			return{ name:'c++',  pr:'$100', au:'Tom'}
+  },
+  components:{     
+			mysoncompoent:sonCompConfig  
+	},     
+  template:`<div>
+    <mysoncompoent :bookName="name" :price="pr" :author="au"></mysoncompoent>
+    </div>`
+	}
+   const app = Vue.createApp({})   
+
+ 
+   app.component("fathercomponent", fatherCompConfig);
+   const rc = app.mount("#box") 
+  </script>
+</body>
+</html>
+
+ 

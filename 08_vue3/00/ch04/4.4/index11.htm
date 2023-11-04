@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>触发更新view</title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <button @click="change('Peter')">Change Name</button>
+          <h3> {{myname}}</h3>  <!--//myname will call  myname-->
+       </div>
+    </body>
+    <script src="d:/vue.js"></script>
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            myname:'Tom',    
+          }
+        },
+        methods:{  
+            change(x){
+                this.myname=x;
+            }
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");  
+</script>
+</html>
