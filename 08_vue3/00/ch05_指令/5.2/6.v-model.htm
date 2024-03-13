@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>选择框</title>
+        <!-- <script src="d:/vue.js"></script> -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <select v-model="myselected">
+            <option disabled value="">Please select</option>
+            <option>C++</option>
+            <option>Java</option>
+            <option>C#</option>
+            </select>
+            <span>Single Selected: {{ myselected }}</span>
+          <br><br><br>
+          <select v-model="Mulselected" multiple style="width: 100px;">
+            <option>Delphi</option>
+            <option>Java</option>
+            <option>Html</option>
+          </select>
+        <span>Multi selected: {{ Mulselected }}</span>
+        </div>
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            myselected: '',
+					  Mulselected: []
+			  	}
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

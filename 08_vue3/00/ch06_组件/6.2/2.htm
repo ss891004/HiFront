@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <script src="d:/vue.js"></script> -->
+	<title>使用外部template元素</title>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+	<template id="temp">
+		<h3>这是html中的temp</h3>
+		<button @click='num++'>You click {{num}} times.</button> num={{num}}
+	</template>
+
+	<div id="box">
+		<XXX1></XXX1>
+		<h2>{{msg}}</h2>
+		<br>
+	</div>
+	<script>
+
+		const myCompConfig = {
+			data() {
+				return { num: 0 }
+			},
+			template: `#temp`,
+		};
+
+		const RootComponentConfig = {
+			data() {
+				return {
+					msg: 'hello'
+				}
+			}
+		}
+		const app = Vue.createApp(RootComponentConfig);
+		app.component("XXX1", myCompConfig);
+		const rc = app.mount("#box"); 
+	</script>
+</body>
+
+</html>

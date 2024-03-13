@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>v-text & v-html</title>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <p>{{person.name}}</p>
+          <p>{{person.age}}</p>
+          <span v-text="text"></span>
+          <span v-html="html"></span>
+        </div>
+
+    </body>
+    <!-- <script src="d:/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+       //Model
+       const user = {
+        data(){         
+          return{
+            person:{
+					  name:'Tom',
+					  age:38
+			  	},
+			  text:'hello,text',  
+			  html:'<h1><font color="#FF0000"><a href="https://www.mit.edu/">Welcome to MIT!</a></font></h1>'
+        }
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+</script>
+</html>

@@ -158,10 +158,7 @@ NPM(Node Package Manager)
 - 安装包安装
     + 官网下载对应的安装包
     + 一路next
-- nvm安装(有一个类似的工具：n)
-    + Node Version Manager（Node版本管理工具）
-    + 由于以后的开发工作可能会在多个Node版本中测试，而且Node的版本也比较多，所以需要这么款工具来管理
-    +
+
 ### 相关版本
 
 - node版本常识  
@@ -264,8 +261,18 @@ NPM(Node Package Manager)
 + 多版本的nodejs的管理工具
 + https://github.com/coreybutler/nvm-windows/releases
 
++ 下载node的压缩版
++ https://nodejs.org/download/release/
+
++ 解压到mvn的目录中，文件夹命名为vx.y.z (x,y,z为版本)
+
++ nvm list 
++ nvm use x.y.z
+
 #### MAC平台
 + https://github.com/nvm-sh/nvm
+
+
 
 
 ### NPM

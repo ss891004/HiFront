@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <script src="d:/vue.js"></script> -->
+	<title>全局注册</title>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+	<div id="box">
+		<component1></component1>
+		<h2>{{msg}}</h2>
+		<br>
+	</div>
+	<script>
+		const myCompConfig = {
+			data() {
+				return { num: 0 }
+			},
+			template: `<button @click='num++'>You click {{num}} times.</button> num={{num}}`,
+		};
+
+		const RootComponentConfig = {
+			data() {
+				return {
+					msg: 'hello'
+				}
+			}
+		}
+		const app = Vue.createApp(RootComponentConfig);
+		app.component("component1", myCompConfig);
+		const rc = app.mount("#box"); 
+	</script>
+</body>
+
+</html>

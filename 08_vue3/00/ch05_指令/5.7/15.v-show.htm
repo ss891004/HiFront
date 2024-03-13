@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- <script src="d:/vue.js"></script> -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      
+    </head>
+  
+    <body>
+        <!--View-->
+        <div id="box">
+          <input type="button" value="show/hide red" v-on:click="toggle()"> <br />
+        <div v-show="isShow" style="width: 100px;height: 100px;background: red"></div>
+
+        </div>  
+    </body>
+   
+    <script>
+
+      
+        Vue.createApp(
+         {
+        data(){    
+          return{     
+            isShow:true,
+        }
+        },
+        methods:{
+          toggle:function(){
+            this.isShow = !this.isShow;
+          }
+        }
+        }).mount("#box");   
+    
+</script>
+</html>

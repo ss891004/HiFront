@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <script src="d:/vue.js"></script> -->
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<title>根组件向子组件传递</title>
+</head>
+
+<body>
+	<div id="box">
+		<component1 :xyz="msg"></component1>
+	</div>
+
+	<script>
+
+		const myCompConfig = {
+
+			template: "<h2>{{xyz}}</h2>",
+
+			props: ["xyz"]
+		};
+
+
+		const RootComponentConfig = {
+			data() {
+				return {
+					msg: 'helloXXXX'
+				}
+			}
+		}
+		const app = Vue.createApp(RootComponentConfig)
+
+		app.component("component1", myCompConfig);
+		const rc = app.mount("#box") 
+	</script>
+</body>
+
+</html>

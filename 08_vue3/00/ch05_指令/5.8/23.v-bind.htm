@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js v-bind CSS</title>
+	<!-- <script src="d:/vue.js"></script> -->
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+	<div id="box">
+		<a v-bind:href="hrefvalue">
+		<img v-bind:src="srcImg" alt="">
+	</div>
+	<script>
+		const user = {
+        data(){         
+          return{
+				hrefvalue:'http://www.hotmail.com',
+				srcImg:'images/1.jpg'
+          }
+		}
+	}
+	const app = Vue.createApp(user);     
+  	const rc = app.mount("#box");  
+	</script>
+</body>
+</html>
+
+ 

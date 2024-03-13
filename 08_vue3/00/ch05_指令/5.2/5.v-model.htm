@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>复选框</title>
+        <!-- <script src="d:/vue.js"></script> -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <!--View-->
+        <div id="box">
+          <label v-for="item in originHobbits">
+            <input type='checkbox' :value="item" :id="item" v-model='sel'>{{item}}
+          </label><br>
+          your choice：<div>{{sel}}</div>
+        </div>
+    </body>
+   
+    <script>
+       //Model
+       const user = {
+        data(){         
+          return{
+          originHobbits:['VC++','VB++','Java'],
+					sel:[]
+			  	}
+        }
+    }
+    //ViewModel
+    const app = Vue.createApp(user);     
+    const rc = app.mount("#box");   
+    //rc.originHobbits=['VC++','VB++','Java','Vue'];  //增加一个checkbox
+</script>
+</html>

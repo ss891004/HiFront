@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <script src="d:/vue.js"></script> -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="box"><a v-bind:href="qqhref">QQ</a> </div> 
+  <script>
+       const user = {
+        data(){         
+          return{
+			qqhref:"http://www.qq.com"
+          }
+		}
+    }
+  const app = Vue.createApp(user);     
+  const rc = app.mount("#box");  
+  </script>
+</body>
+</html>
+
+   
+
